@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Raleway:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #3b4b36;
+}
+
+body h2 {
+    font-size:small;
+}
+
+header {
+padding:  0px 80px 0px 80px;
+background-color: #3b4b36;
+text-align: center;
+margin: 0;
+justify-content: center;
+}
+
+/* ANIMACE NADPISU*/
+
+.animate-charcter{
+
+    background-image: linear-gradient(
+    -225deg,
+     white 0%,
+     #46633d 29%,
+     #6c935e 67%,
+     #9fd185 100%
+    );
+    font-family: 'Josefin Sans', sans-serif;
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 5s linear infinite;
+    animation-iteration-count: 2;
+    display: inline-block;
+        font-size: 30px;
+}
+
+
+header h2 {
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    color: white;
+}
+
+header img {
+    max-width: max-content;
+    width: 100%;
+    border-top: #688b5b solid;
+    border-radius: 5px;
+    box-shadow: 0px 5px 20px black;
+    display: flex;
+}
+
+nav {
+align-items: flex;
+padding: 0px 0px 8px 0px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 10px;
+    background-color: transparent;
+    transition: 1s;
+    border-radius: 5px 5px 0px 0px;
+}
+
+nav a:hover {
+    transition: 1s;
+    background-color: #688b5b;
+    border-radius: 5px 5px 0px 0px;
+}
+
+
+section.svetla {
+background-color: #688b5b;
+margin: 0;
+padding:  20px 80px 20px 80px;
+text-decoration: none;
+display: flex;
+flex-direction: row;
+
+
+}
+
+
+section.svetla article {
+background-color: #3b4b36;
+text-align: left;
+font-family: 'Raleway', sans-serif;
+margin: 5px;
+color: white;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 5px 5px 5px black;
+}
+
+section.svetla article a {
+    padding: 5px;
+    background-color:#9ccb83;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    }
+
+
+section.tmava {
+background-color: #3b4b36;
+margin: 0;
+padding:  20px 80px 20px 80px;
+margin: 0;
+text-decoration: none;
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+
+section.tmava article{
+    padding: 20px;
+    color:#688b5b;
+    text-align: center;
+    text-decoration: none;
+    }
+
+
+section.tmava img{
+max-width: max-content;
+width: 100%;
+border-radius: 5px;
+box-shadow: 0px 5px 20px black;
+}
+
+section.tmava2 {
+    background-color: #3b4b36;
+    margin: 0;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    }
+
+    section.tmava2 article{
+        padding: 20px;
+        color:#688b5b;
+        text-align: center;
+        text-decoration: none;
+        }
+
+/* ANIMACE NAVIGACE*/
+
+.lineUp {
+    animation: 3s anim-lineUp ease-out infinite;
+    animation-iteration-count: 1;
+    }
+    @keyframes anim-lineUp {
+    0% {
+        opacity: 0;
+        transform: translateY(80%);
+    }
+        20% {
+        opacity: 0;
+    }
+        50% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+        100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+/* ----------------------------------------------------------------------------------
+ ------------------------- ROZDĚLENÍ JEDNOTLIVÝCH ROZLIŠENÍ -------------------------
+---------------------------------------------------------------------------------- */
+
+/* MOBILNÍ TELEFON */
+
+@media (max-width: 859px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+        order: 2;
+        }
+
+    section.svetla {
+        display: flex;
+        flex-direction: column;
+    }
+
+    section.tmava {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header h2{
+        font-size: 0;
+    }
+    header img{
+        border-top: none;
+        order: 1;
+    }
+    
+    .lineUp {
+        animation-iteration-count: 0;
+    }
+
+}
+
+/* TABLET */
+
+@media (max-width: 1279px) and (min-width: 860px) {
+
+    header h2{
+        font-size: 0;
+    }
+
+}
+
+/* POČÍTAČ */
+
+@media (min-width: 1280px) {
+
+    /*.top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    .name {
+        display: flex;
+        flex-direction: column;
+        align-items:center
+
+    }
+
+    header h1 {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    header h2 {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    nav a {
+
+    }
+
+    */
+
+}

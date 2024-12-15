@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Script&family=Source+Code+Pro:wght@400;500;600;700&display=swap');
+body {
+    margin: 0 px;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 115%;
+}
+header h1 {
+    font-family: 'Luxurious Script', cursive;
+    font-weight: normal;
+    font-size: 5em;
+    color: rgba(255, 214, 7, 0.985);
+    text-shadow: 0px 0px 10px black;
+}
+
+img {
+    width: 100%;
+    max-width: max-content;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px black;
+}
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(to bottom, white, rgba(30, 50, 7, 0.817) );
+    padding: 30px ;
+    border-radius: 30px;
+}
+nav {
+display: flex;
+flex-direction: column;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0.344);
+border-radius: 30px;
+margin: 50px;
+}
+
+nav a {
+text-align: center;
+color: white;
+text-decoration: none;
+border-radius: 20px 3px 20px 3px;
+border: 10px;
+margin: 5px;
+padding: 10px;
+background-color: rgba(30, 50, 7, 0.817);
+transition: 1s;
+}
+
+nav a :hover {
+    border-radius: 3px 20px 3px 20px;
+    transition: 1s;
+}
+section {
+    display: flex;
+    flex-direction: row;
+    padding: 30px ;
+    background-color: rgba(155, 154, 154, 0.344);
+    border-radius: 30px;
+    margin: 10px;
+}
+
+article {
+    flex: 1;
+    padding: 15px;
+}
+
+
+@media (min-width: 900px){
+    nav {
+        flex-direction: row;
+        flex-direction: center;
+        display: flex;
+    }
+    article {
+        flex: 1;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+}
