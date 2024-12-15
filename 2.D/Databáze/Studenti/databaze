@@ -1,0 +1,22 @@
+CREATE TABLE studenti (
+    IDstudent INT,
+    jmeno VARCHAR(255),
+    prijmeni VARCHAR(255),
+);
+CREATE TABLE predmety (
+    IDpredmet INT,
+    nazev VARCHAR(255),
+    zkratka VARCHAR(255),
+);
+CREATE TABLE znamky (
+    IDznamka INT,
+    IDstudent INT,
+    IDpredmet INT,
+    znamka INT,
+    datum DATE,
+);
+CREATE TABLE ucitele (
+    IDucitel INT,
+    jmeno VARCHAR(255),
+    prijmeni VARCHAR(255),
+);
