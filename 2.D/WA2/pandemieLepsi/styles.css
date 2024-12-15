@@ -1,0 +1,22 @@
+body {
+    background-color: #5E503F;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+section {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 60%;
+    border-radius: 10px;
+}
+img {
+    padding: 10px;
+    width: 150px;
+    height: 150px;
+}

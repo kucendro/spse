@@ -1,0 +1,16 @@
+li {
+    margin-bottom: 5px;
+    list-style-type: none;
+}
+
+li::before {
+    content: "☀ ";
+}
+li {
+    margin-bottom: 5px;
+    list-style: none;
+}
+
+li:hover::before {
+    content: "🫵🏻 ";
+}

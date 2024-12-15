@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
+html {
+    scroll-behavior: smooth;
+  }
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+header {
+    text-align: center;
+    font-family: 'Teko', sans-serif;
+    font-size: 0.9 em;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    transition: background-color 1.5s ease;
+    padding: 0;
+    margin: 0;
+    align-items: center ;
+    z-index: 1;
+}
+h1 {
+    color: white;
+    text-decoration: none;
+    padding: 0;
+}
+.header {
+    font-size: 1.5em;
+    color: black;
+    text-decoration: none;
+    padding: 1% 4% 1% 4%;
+    z-index: 1;
+}
+.logo {
+    width: 4.5%;
+    height: 4.5%;
+    align-self: center;
+    padding: 0% 4% 0% 4%;
+}
+.logo img {
+    padding: 15% 4% 0% 4%;
+    width: 100%;
+    height: 100%;
+}
+main {
+    font-family: 'Teko', sans-serif;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.main img {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.main h1 {
+    font-size: 3em;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+.main button {
+    font-family: 'Teko', sans-serif;
+    font-size: 1.7em;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 0.8% 2% 0.5% 2%;
+    border-style: dotted;
+    margin: 0;
+    transition-duration: 0.5s;
+}
+.main button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transition-duration: 0.5s;
+}
+
+footer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: black;
+    padding: 0;
+    margin: 0;
+    margin-top: 5%;
+}
+footer section {
+    font-family: 'Teko', sans-serif;
+    font-size: 1.5em;
+    color: white;
+    padding: 1% 4% 1% 4%;
+}
+.team  {
+    font-size: 1.5em;
+    color: black;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+.team h1 {
+    color: black;
+    font-size: 1.5em;
+}
+#align {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.team div {
+    padding: 0% 4% 0% 4%;
+}
+.team img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0%;
+    transition-duration: 0.5s;
+}
+.team img:hover {
+    transform: scale(1.05);
+    transition-duration: 0.5s;
+}
+.center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+#zmenaBarvy img {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.zoom1 {
+    font-family: 'Teko', sans-serif;
+    text-align: center;
+    padding: 1% 2% 1% 2%;
+    margin: 2% 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-color: white;
+    border-style: dotted;
+    border-radius: 0%;
+    flex: 1;
+}
+.zoom2 {
+    font-family: 'Teko', sans-serif;
+    text-align: center;
+    padding: 1% 2% 1% 2%;
+    margin: 2% 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-color: white;
+    border-style: dotted;
+    border-radius: 0%;
+    flex: 1;
+}
+.zoom3 {
+    font-family: 'Teko', sans-serif;
+    text-align: center;
+    padding: 1% 2% 1% 2%;
+    margin: 2% 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-color: white;
+    border-style: dotted;
+    border-radius: 0%;
+    flex: 1;
+}
+.zoom1:hover {
+    transform: scale(1.02) rotate(2deg) translate(0, -3px);
+    transition-duration: 0.5s;
+}
+.zoom2:hover {
+    transform: scale(1.01);
+    transition-duration: 0.5s;
+}
+.zoom3:hover {
+    transform: scale(1.02) rotate(-2deg) translate(0, 3px);
+    transition-duration: 0.5s;
+}
+#text {
+    display: flex;
+    flex-direction: row;
+}
+.services {
+    background-image: url("img/background2.jpg");
+    background-size: cover;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+#services {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    color:  white;
+}
+#services article {
+    margin: 10% 1%;
+    padding: 3%;
+    width: 100%;
+}
+section h1{
+    color: black;
+    font-size: 1.5em;
+}
+.technology h1{
+    color: white;
+    font-size: 2.0em;
+}
+
+@media only screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        padding: 0;
+        position: relative;
+    }
+    .header {
+        padding: 1% 0% 1% 0%;
+    }
+    .logo {
+        padding: 0% 0% 0% 0%;
+    }
+    .logo img {
+        padding: 0% 0% 0% 0%;
+    }
+    main h1 {
+        font-size: 2em;
+    }
+    main button {
+        font-size: 1.2em;
+    }
+    footer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    footer section {
+        padding: 1% 0% 1% 0%;
+    }
+    .team {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .team div {
+        padding: 0% 0% 0% 0%;
+    }
+    #align {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .team img {
+        width: 100%;
+        height: 100%;
+        border-radius: 0%;
+    }
+    .zoom1 {
+        padding: 1% 0% 1% 0%;
+        margin: 2% 0%;
+    }
+    .zoom2 {
+        padding: 1% 0% 1% 0%;
+        margin: 2% 0%;
+    }
+    .zoom3 {
+        padding: 1% 0% 1% 0%;
+        margin: 2% 0%;
+    }
+    .zoom1:hover {
+        transform: none;
+    }
+    .zoom2:hover {
+        transform: none;
+    }
+    
+    #text {
+        display: flex;
+        flex-direction: column;
+    }
+    .services {
+        background-image: url("img/background2.jpg");
+        background-size: cover;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    #services {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-aroun;
+    }
+    .main h1 {
+        font-size: 3em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        padding: 0;
+        margin: 0;
+    }
+    .main button {
+        font-family: 'Teko', sans-serif;
+        font-size: 1.7em;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 0.8% 2% 0.5% 2%;
+        border-style: dotted;
+        margin: 0;
+        transition-duration: 0.5s;
+    }}
+    

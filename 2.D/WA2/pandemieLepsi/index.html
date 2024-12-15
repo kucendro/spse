@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pandemie</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Pandemie 2.0</h1>
+        <p id="vysledek"></p>
+        <button onclick="pandemie()">Spust pandemii</button>
+        <section>
+            <img src="0.png" alt="">
+            <img src="1.png" alt="">
+            <img src="2.png" alt="">
+            <img src="3.png" alt="">
+        </section>
+    </header>
+    <main>
+        <script>
+            let interval; // Globální proměnné
+            let startTime;
+
+            function virus() {
+                let obrazky = document.querySelectorAll("img");
+                let randomNumber = Math.floor(Math.random() * obrazky.length);
+                let nahodneCislo = Math.floor(Math.random() * 4);
+
+                let zvolenyObrazek = obrazky[randomNumber];
+                zvolenyObrazek.src = `${nahodneCislo}.png`;
+
+                let vsechny0 = Array.from(obrazky).every(img => img.src.endsWith("0.png"));
+                let vsechny1 = Array.from(obrazky).every(img => img.src.endsWith("1.png"));
+                let vsechny2 = Array.from(obrazky).every(img => img.src.endsWith("2.png"));
+                let vsechny3 = Array.from(obrazky).every(img => img.src.endsWith("3.png"));
+
+                if (vsechny0 || vsechny1 || vsechny2 || vsechny3) {
+                    konec();
+                }
+            }
+
+            function pandemie() {
+                startTime = new Date(); // Uložení startovního času
+                interval = setInterval(virus, 300); // Spuštění intervalu
+            }
+
+            function konec() {
+                clearInterval(interval); // Zastavení intervalu
+                let endTime = new Date();
+                let timeDiff = (endTime - startTime) / 1000;
+
+                document.getElementById("vysledek").textContent = "Pandemie trvala " + timeDiff.toFixed(2) + " sekund.";
+            }
+        </script>
+    </main>
+</body>
+</html>

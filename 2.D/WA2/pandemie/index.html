@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="pandemie()">
+<section>
+<div id="1" onclick="lecba(0)" class="kolecko"></div>
+<div id="2" onclick="lecba(1)" class="kolecko"></div>
+<div id="3" onclick="lecba(2)" class="kolecko"></div>
+<div id="4" onclick="lecba(3)" class="kolecko"></div>
+</section>
+<p id="vysledek"></p>
+
+<script>
+
+let startTime;
+        let interval;
+        let randomNumber;
+
+        function virus() {
+
+            randomNumber = Math.floor(Math.random() * 4);
+
+            let kolecka = document.querySelectorAll(".kolecko");
+            let zvoleneKolecko = kolecka[randomNumber];
+            zvoleneKolecko.style.backgroundColor = "red";
+
+            let allRed = true;
+            kolecka.forEach(div => {
+                if (div.style.backgroundColor !== "red" && div.style.backgroundColor !== "green") {
+                    allRed = false;
+                }
+            });
+
+            if(allRed) {
+                smrt();
+            }
+
+
+        }
+
+        function pandemie() {
+
+            startTime = new Date();
+            interval = setInterval(virus, 2000);
+        }
+
+        function heureka() {
+            clearInterval(interval);
+            let endTime = new Date();
+            let timeDiff = (endTime - startTime) / 1000;
+
+            document.getElementById("vysledek").textContent = "Vyléčení pandemie trvalo " + timeDiff + " sekund.";
+        }
+
+        function smrt() {
+            clearInterval(interval);
+            let endTime = new Date();
+            let timeDiff = (endTime - startTime) / 1000;
+
+            document.getElementById("vysledek").textContent = "Pandemie trvala " + timeDiff + " sekund.";
+        }
+
+        function lecba(index) {
+
+            if (index === 0 && document.getElementById("1").style.backgroundColor === "red") {
+                document.getElementById("1").style.backgroundColor = "green";
+            } else if (index === 0 && document.getElementById("1").style.backgroundColor === ""){
+                document.getElementById("1").style.backgroundColor = "red";
+            }
+
+            if (index === 1 && document.getElementById("2").style.backgroundColor === "red") {
+                document.getElementById("2").style.backgroundColor = "green";
+            } else if (index === 1 && document.getElementById("2").style.backgroundColor === "") {
+                document.getElementById("2").style.backgroundColor = "red";
+            }
+
+            if (index === 2 && document.getElementById("3").style.backgroundColor === "red") {
+                document.getElementById("3").style.backgroundColor = "green";
+            } else if (index === 2 && document.getElementById("3").style.backgroundColor === "") {
+                document.getElementById("3").style.backgroundColor = "red";
+            }
+
+            if (index === 3 && document.getElementById("4").style.backgroundColor === "red") {
+                document.getElementById("4").style.backgroundColor = "green";
+            } else if (index === 3 && document.getElementById("4").style.backgroundColor === "") {
+                document.getElementById("4").style.backgroundColor = "red";
+            }
+        }
+</script>
+
+</body>
+</html>

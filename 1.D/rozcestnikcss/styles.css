@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
+body{
+    height: 100%;
+    font-family: 'Comfortaa', cursive;
+    background-color: rgb(229, 244, 251);
+    margin: 0;
+    background-image: url(img/pozadi.jpg);
+    background-size: 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+header {
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    color: white;
+    text-decoration: none;
+    text-shadow: 0px 0px 8px black;
+}
+
+main {
+    text-align: center;
+    background-repeat: no-repeat;
+    font-family: 'Comfortaa', cursive;
+    color: white;
+    text-decoration: none;
+    text-shadow: 0px 0px 8px black;
+}
+
+
+main section {
+    background-color: rgba(255, 255, 255, 0.204);
+    border-radius: 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px;
+    padding: 10px;
+    transition: 1s;
+}
+
+
+main article {
+   text-align: center;
+   color: white;
+   text-shadow: 0px 0px 5px black;
+}
+
+main article img {
+    display: flex;
+    flex-direction: row;
+    max-width: 150px;
+    border-radius: 30px;
+    margin: 20px;
+}
+
+h1 {
+    font-family: 'Comfortaa', cursive;
+    color: white;
+    text-decoration: none;
+}
+
+p {
+    font-family: 'Comfortaa', cursive;
+    text-decoration: none;
+}
+
+nav {
+
+}
+
+nav a {
+text-decoration: none;
+color: rgba(226, 53, 37);
+text-shadow: rgba(0, 0, 0, 0.45) 0px 0px 5px;
+background-color: rgba(255, 255, 255, 0.204);
+border-radius: 20px;
+padding: 10px;
+transition: 1s;
+margin:  0px 0px 0px 0px;
+}
+
+nav a:hover {
+    transition: 0,5s;
+    background-color: rgba(255, 255, 255, 0.547);
+}
+
+
+
+@media (max-width: 1100px) {
+    main section {
+        background-color: rgba(0, 0, 0, 0.118);
+        transition: 1s;
+    }
+}

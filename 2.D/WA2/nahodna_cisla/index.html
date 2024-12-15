@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Náhodná čísla - losování</title>
+    <link rel="stylesheet" href="slyles.css">
+
+</head>
+<body>
+    <div class="card-container">
+    <h3>Náhodná čísla - losování</h3>
+    <br>
+    <p id="randomNumber">Klikni na kartu pro spuštění nebo zastavení losování</p>
+    <div id="numbers"></div>
+    <br>
+    <button class="primary ghost" onclick="smazat()">Vymazat</button>
+
+    <script>
+        let intervalId = null;
+        let numbers = [];
+
+        // Funkce pro generování náhodného čísla v rozsahu
+        function generateRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Funkce pro spuštění a zastavení losování
+        function toggleRandomNumber() {
+            const currentNumber = document.getElementById('randomNumber').textContent;
+
+            if (intervalId === null) {
+                intervalId = setInterval(() => {
+                    let newNumber;
+                    do {
+                        newNumber = generateRandomNumber(1, 10);
+                    } while (numbers.includes(newNumber));
+                    document.getElementById('randomNumber').textContent = newNumber;
+                    document.getElementById('randomNumber').style.fontSize = '3em';
+
+                }, 1);
+            } else {
+                clearInterval(intervalId);
+                intervalId = null;
+
+                const displayedNumber = parseInt(currentNumber, 10);
+                if (!numbers.includes(displayedNumber)) {
+                    numbers.push(displayedNumber);
+                }
+
+                // Zobrazit vylosovaná čísla na stránce
+                document.getElementById('numbers').textContent = 'Vybraná čísla: ' + numbers.join(', ');
+            }
+        }
+
+        // Přidat event listener na body pro spuštění/zastavení
+        document.body.addEventListener('click', toggleRandomNumber);
+
+        function smazat() {
+            numbers = [];
+            document.getElementById('numbers').textContent = 'Vybraná čísla: ';
+
+        }
+
+    </script>
+    </div>
+</body>
+</html>

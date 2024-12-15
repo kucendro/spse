@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Comfortaa", sans-serif;
+    background: #f4f4f4;
+    color: #333;
+}
+
+.background {
+    background: rgb(16, 50, 132);
+    background-size: 400% 400%;
+    padding: 50px 0;
+    min-height: 100vh;
+}
+
+
+main {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Karty */
+.card {
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Nadpisy */
+h2 {
+    color: rgb(16, 50, 132);
+    text-align: center;
+    font-size: 3em;
+}
+
+/* Seznamy */
+ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+ul li {
+    margin-bottom: 10px;
+    color: rgb(16, 50, 132);
+}
+
+/* Odkazy */
+a {
+    color: rgb(16, 50, 132);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.imgvedlesebe {
+    display: flex;
+    flex-direction: row;
+    max-width: 30%;
+    border-radius: 5px;
+    margin-top: 10px;
+    justify-content: center;
+
+}
+.zarovnat {
+    max-width: 50%;
+}

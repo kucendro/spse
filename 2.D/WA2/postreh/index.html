@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="startTimer()">
+    <div class="card-container">
+
+        <h3>Postřeh</h3>
+        <p>Jak rychle zareagujete na změnu barvy?</p>
+
+        <p id="cas"></p>
+
+        <button class="primary ghost" onclick="pocitadlo()">POSTŘEH</button>
+
+        <script>
+            let startTime;
+            let colorChangeTime;
+
+            function startTimer() {
+                // Reset pozadí
+                document.body.style.backgroundColor = "#5E503F";
+                
+                // Nastavení náhodného intervalu pro změnu barvy
+                let randomInterval = Math.floor(Math.random() * 5000) + 2000; // mezi 2 a 7 sekundami
+                setTimeout(zmenaBarvy, randomInterval);
+            }
+
+            function zmenaBarvy() {
+                // Změna pozadí na červenou
+                document.body.style.backgroundColor = "red";
+                
+                // Uložení času změny barvy
+                colorChangeTime = new Date().getTime();
+            }
+
+            function pocitadlo() {
+                // Získání aktuálního času při stisknutí tlačítka
+                let currentTime = new Date().getTime();
+
+                // Výpočet rozdílu časů v milisekundách
+                let timeDifference = currentTime - colorChangeTime;
+
+                // Převod rozdílu do sekund
+                let reactionTime = timeDifference / 1000;
+
+                // Zobrazení výsledku v elementu 'cas'
+                document.getElementById("cas").innerHTML = "Trvalo ti to: " + reactionTime.toFixed(3) + " sekund";
+
+                // Zobrazení dialogového okna s výsledkem
+                alert("Trvalo ti to: " + reactionTime.toFixed(3) + " sekund");
+
+                // Zobrazení reakčního času v názvu stránky
+                document.title =  "Čas: " + reactionTime.toFixed(3) + " s";
+
+                // Obnovení procesu pro další kolo
+                startTimer();
+            }
+        </script>
+
+        <div class="buttons">
+            <a href="index.html">
+                <button class="primary ghost">Zpět na index</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
