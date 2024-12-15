@@ -1,4 +1,4 @@
-#  School Projects 📚💻
+# School Projects 📚💻
 
 This repository contains various school projects developed as part of my studies at SPŠE and VOŠ Pardubice. The projects span different programming languages, frameworks, and technologies, showcasing my learning journey and problem-solving skills.
 
