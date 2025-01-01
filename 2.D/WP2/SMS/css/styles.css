@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap');
+
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Funnel Sans", sans-serif;
+    background-color: black;
+}
+
+nav{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 30px 30px 30px 30px;
+    font-size: 0.9em;
+}
+
+nav img {
+    width: 25px;
+    fill: black;
+}
+
+nav a:hover{
+    transition: 0.3s;
+    background-color: rgba(169, 131, 6, 0.486);
+
+}
+header{
+    background-color: rgb(230, 184, 34);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+
+img{
+    width: 25%;
+    margin: 5px;
+    padding: 10 px;
+}
+
+h1 > img{
+    width: 30%;
+}
+
+.filmPozadí > img{
+    max-width: max-content;
+    width: 60%;
+}
+
+section{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    padding: 10px 10%;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.film{
+    display: grid;
+    grid-column: span 7;
+    grid-row: span 1;
+}
+.filmPozadí{
+    background-color: rgb(47, 47, 47);
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+.filmText{
+    display: flex;
+    flex-direction: column;
+}
+h2{
+    color:  rgb(230, 184, 34);
+}
+strong{
+    color: rgb(230, 184, 34);
+}
+
+.premiera{
+    display: grid;
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    grid-row: auto;
+    color: white;
+}
+.premieraPozadi{
+    background-color:rgb(47, 47, 47);
+    flex-direction: column;
+    display: flex;
+    padding: 10px;
+}
+.cervenyBut{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(230, 184, 34);
+    padding: 4px;
+}
+.sedyButt{
+    text-decoration: none;
+    color: white;
+    background-color: grey;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+}
+.sedyButt2{
+    text-decoration: none;
+    color: white;
+    background-color: grey;
+    margin-bottom: 15px;
+    padding: 4px;
+}
+.premieraUvnitr{
+    display: flex;
+    flex-direction: column;
+}
+.socialImg img{
+    width: 42px;
+}
+.kolecko{
+    border-radius: 50%;
+    background-color: rgb(230, 184, 34);
+    grid-column-end: 9;
+    grid-row-end: 2;
+    width: 100px;
+    height: 100px;
+    margin-left: -25px;
+    margin-top: 50px;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    font-size: 2em;
+}
+.hlasy{
+    font-size: small;
+    color: rgb(230, 184, 34);
+}
+.row-kino{
+    display: flex;
+    flex-direction: row;
+    color: rgb(230, 184, 34);
+}
+.row-kino p{
+    margin-right: 10px;
+    color: rgb(230, 184, 34);
+}
+.fotogalerie{
+    grid-row-start: 2;
+    grid-column: span 13;
+}
+.foto{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(47, 47, 47);
+    padding: 25px;
+}
+.foto img{
+    border: solid 2px rgb(47, 47, 47);
+    width: 32%;
+}
+
+.oserialu{
+    grid-row-start: 3;
+    grid-column: span 12;
+}
+.oserialuText{
+    background-color: rgb(47, 47, 47);
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+    color: white;
+}
+footer{
+    background-color: rgb(230, 184, 34);
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+

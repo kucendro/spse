@@ -1,0 +1,38 @@
+@media(max-width:1100px){
+
+    nav{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    h1{
+        display: none;
+    }
+
+    section{
+        display: grid;
+        grid-template-columns: 100% 0%;
+        grid-template-rows: auto auto;
+        padding: 10px 10%;
+        grid-template-rows: none;
+        display: flex;
+        flex-direction: column;
+    }
+    .oserialuText{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .oserialuText img{
+        display: flex;
+        max-width: fit-content;
+        width: 60%;
+        margin: 20px;
+    }
+    .kolecko{
+        position: absolute;
+        margin-left: 70%;
+    }
+    .hlasy{
+        display: none;
+    }
+}
