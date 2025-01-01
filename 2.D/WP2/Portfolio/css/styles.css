@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+    background-color:#5E503F;
+    font-family: Montserrat, sans-serif;
+    margin: 5% 5% 5% 5%;
+    padding: 0px;
+}
+
+h1 {
+    color: #C6AC8F;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+
+div {
+    background-color: #5E503F;
+    border: 1px solid #C6AC8F;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 0px 10px 20px -10px rgb(8, 26, 26);
+    color: #dce1de;
+    position: relative;
+    margin: 10px;
+    align-items: center;
+    display: flex;
+}
+div:hover {
+    background-color: #C6AC8F;
+    color: #5E503F;
+    transition: 0.7s;
+}
+
+#prvni {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+#druhy {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+#treti {
+    background-color: rgb(213, 130, 46);
+    grid-row-start: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+#ctvrty {
+    grid-row-start: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+#paty {
+    grid-row-start: 2;
+    grid-column-start: 6;
+    grid-column-end: 7
+}
+#sesty {
+    grid-row-start: 3;
+    grid-column-start: 6;
+    grid-column-end: 7;
+}
+#sedmy {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 6;
+}
+#osmy {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+#devaty {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+#desaty {
+    background-color: rgb(220, 74, 36);
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+#jedenacty {
+    background-color: rgb(36, 76, 220);
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+}
+#dvanacty {
+    background-color: rgb(234, 204, 34);
+    color: black;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    
+}
+#trinacty {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    background-color: rgb(0, 110, 253);
+}
+#ctrnacty {
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+#patnacty {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 6;
+    grid-column-end: 7;
+}
+#sestnacty {
+    background-color: rgb(2, 117, 143);
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 5;
+    grid-column-end: 6;
+}
