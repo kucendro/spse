@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="stromecek.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+<body>
+<header>
+  <h1>Vánoční stromeček</h1>
+  <p id="vyslednyCas"></p>
+  <p id="pocetRozsvicenychOzdob"></p>
+  <button onclick="rozsvecej()">Náhodné rozsvěcení</button>
+  <button onclick="postupneRozsveceni()">Postupné rozsvěcení</button>
+</header>
+<main>
+  <article class="stromecek">
+    <section>
+      <span class="material-icons">hive</span>
+    </section>
+    <section>
+      <span class="material-icons">sports_basketball</span><span class="material-icons">notifications_paused</span>
+    </section>
+    <section>
+      <span class="material-icons">pages</span><span class="material-icons">heart_broken</span><span class="material-icons">pix</span>
+    </section>
+    <section>
+      <span class="material-icons">fitbit</span><span class="material-icons">stream</span><span class="material-icons">auto_awesome</span><span class="material-icons">wb_sunny</span>
+    </section>
+    <section>
+      <span class="material-icons">center_focus_strong</span><span class="material-icons">flare</span><span class="material-icons">assistant</span><span class="material-icons">brightness_5</span><span class="material-icons">brightness_7</span>
+    </section>
+    <section>
+      <span class="material-icons">bedtime</span><span class="material-icons">blur_circular</span><span class="material-icons">brightness_2</span><span class="material-icons">tonality</span><span class="material-icons">photo_filter</span><span class="material-icons">hub</span>
+    </section>
+  </article>
+</main>
+
+<script>
+  let nahodneCislicko;
+  let interval;
+  let pocatecniCasik;
+
+  function rozsvit(){
+    document.getElementById("pocetRozsvicenychOzdob").textContent = "Počet rozsvícených ozdob: 0";
+
+    nahodneCislicko = Math.floor(Math.random()* 21);
+
+
+    let ozdoba = document.querySelectorAll(".material-icons");
+    let barevnaOzdoba = ozdoba[nahodneCislicko];
+
+
+     if (barevnaOzdoba.style.color == ""){
+      barevnaOzdoba.style.color = "gold"
+    } else if (barevnaOzdoba.style.color == "gold") {
+      barevnaOzdoba.style.color = "lime";
+    } else if (barevnaOzdoba.style.color == "lime"){
+      barevnaOzdoba.style.color = "cyan";
+    } else if (barevnaOzdoba.style.color == "cyan"){
+      barevnaOzdoba.style.color = "red";
+    } else if (barevnaOzdoba.style.color == "red"){
+      barevnaOzdoba.style.color = "gold";
+    };
+
+    let vsechnyBarevne = false;
+    let barevne = 0;
+    for (let i = 0; i < ozdoba.length; i++) {
+      if (ozdoba[i].style.color != "") {
+        barevne++;
+      }
+
+    }
+    document.getElementById("pocetRozsvicenychOzdob").textContent = "Počet rozsvícených ozdob: " + barevne;
+
+    if (barevne == ozdoba.length) {
+      vsechnyBarevne = true;
+      document.getElementById("pocetRozsvicenychOzdob").textContent = "Všechny ozdoby jsou rozsvícené!";
+    }
+
+    if (vsechnyBarevne){
+      konecBlikani();
+    }
+
+  }
+
+  function rozsvecej(){
+    interval = setInterval(rozsvit, 300);
+    pocatecniCasik = new Date();
+  }
+
+  function konecBlikani() {
+    clearInterval(interval);
+    konecnyCasik = new Date();
+    vyslednaDobaTrvani = (konecnyCasik - pocatecniCasik)/1000;
+    vyslednaDobaTrvani = Math.floor(vyslednaDobaTrvani); /* Chci to zaokrouhlit, aby to nebylo v desetinném čísle*/
+    document.getElementById("vyslednyCas").textContent = "Rozsvěcení stromečku trvalo přesně: " + vyslednaDobaTrvani + "s.";
+  }
+
+  function postupneRozsveceni(){
+    let ozdoba = document.querySelectorAll(".material-icons");
+    document.querySelectorAll(".material-icons").forEach(function(ozdoba){
+      ozdoba.style.color = "";
+    });
+
+    let i = 0;
+    interval = setInterval(function(){
+      if (i < ozdoba.length){
+        ozdoba[i].style.color = "gold";
+        i++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 300);
+  }
+
+</script>
+</body>
+</html>
+
+
+

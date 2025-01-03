@@ -1,0 +1,36 @@
+body {
+  margin: 0px;
+  background-color: black;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+h1 {
+  color: white;
+}
+p {
+  color: white;
+}
+article.stromecek {
+  background-image: url(stromecek.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 840px;
+  box-sizing: border-box;
+  padding-top: 100px;
+}
+article.stromecek section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0px;
+}
+.material-icons {
+  color: white;
+  font-size: 50px;
+  padding: 30px 10px;
+}
+header {
+  background-color: #5E503F;
+  padding: 10px;
+  text-align: center;
+}
