@@ -4,9 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casino</title>
-    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    
+
+    <div class="container">
+        <h1>Casino</h1>
+        <div class="slot-machine">
+            <div class="slot" id="slot1"></div>
+            <div class="slot" id="slot2"></div>
+            <div class="slot" id="slot3"></div>
+        </div>
+        <button id="start">Start</button>
+    </div>
+
+    <style>
+        .container {
+            text-align: center;
+        }
+
+        .slot-machine {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .slot {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+        }
+
+        #result {
+            margin: 20px 0;
+            font-size: 2em;
+        }
+
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+        body {
+            background-color:#5E503F;
+            font-family: Montserrat, sans-serif;
+            margin: 5% 5% 5% 5%;
+            padding: 0px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            color: #dce1de;
+        }
+
+        h1 {
+            color: #C6AC8F;
+            text-align: center;
+            margin: 20px;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+        }
+
+        div {
+            background-color: #5E503F;
+            border: 1px solid #C6AC8F;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            justify-content: center;
+            box-shadow: 0px 10px 20px -10px rgb(8, 26, 26);
+            color: #dce1de;
+            position: relative;
+            margin: 30px;
+            align-items: center;
+            display: flex;
+        }
+
+        button {
+            background-color: #C6AC8F;
+            border: none;
+            color: #5E503F;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+
+    <script>
+        const slot1 = document.getElementById('slot1');
+        const slot2 = document.getElementById('slot2');
+        const slot3 = document.getElementById('slot3');
+        const start = document.getElementById('start');
+
+        const symbols = ['🍒', '🍋', '🍊', '🍇', '🍉', '🍌', '🍓', '🍍', '🍎', '🍑'];
+
+        start.addEventListener('click', () => {
+            document.body.style.backgroundColor = '#5E503F';
+            let interval = setInterval(() => {
+                slot1.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                slot2.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                slot3.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            }, 100);
+
+            setTimeout(() => {
+                clearInterval(interval);
+
+                const random1 = Math.floor(Math.random() * symbols.length);
+                const random2 = Math.floor(Math.random() * symbols.length);
+                const random3 = Math.floor(Math.random() * symbols.length);
+
+                slot1.textContent = symbols[random1];
+                slot2.textContent = symbols[random2];
+                slot3.textContent = symbols[random3];
+
+                if (random1 === random2 && random2 === random3) {
+                    document.body.style.backgroundColor = 'green';
+                } else {
+                    document.body.style.backgroundColor = 'red';
+                }
+            }, 2000);
+        });
+    </script>
+
 </body>
 </html>
