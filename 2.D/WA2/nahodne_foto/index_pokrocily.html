@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Náhodné foto</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="card-container">
+    <h3>Náhodné strašidelné fotografie ULTRA PRO MAX</h3>
+
+    <img id="foto1" src="" alt="Náhodná fotografie 1">
+    <img id="foto2" src="" alt="Náhodná fotografie 2">
+    <img id="foto3" src="" alt="Náhodná fotografie 3">
+
+    <script>
+        function zobrazNahodneFotografie() {
+            const pocetFotografii = 6;
+            const zvolenaCisla = new Set();
+
+            while (zvolenaCisla.size < 6) {
+                const nahodneCislo = Math.floor(Math.random() * pocetFotografii) + 1;
+                zvolenaCisla.add(nahodneCislo);
+            }
+
+            const nahodnaCislaPole = Array.from(zvolenaCisla);
+
+            nahodnaCislaPole.forEach((cislo, index) => {
+                document.getElementById(`foto${index + 1}`).src = `foto/foto${cislo}.JPG`;
+            });
+        }
+
+        window.onload = zobrazNahodneFotografie;
+    </script>
+
+
+    </div>
+</body>
+</html>

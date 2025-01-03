@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .barva {
+            color: red;
+        }
+    </style>
+    <script>
+        var pocetKliku = 0;
+        function pocitadlo() {
+            pocetKliku++;
+            document.getElementById("pocet").innerHTML = "Počet kliknutí: " + pocetKliku;
+        }
+    </script>
+</head>
+<body>
+    <div class="card-container">
+
+        <h3>Cvičení: Text</h3>
+        <p>Vypsání a změna textu.</p>
+        <p>Text lze do stránky zapsat při jejím vytvoření pomocí write, nebo kdykoliv pomocí funkce a vlastnosti.</p>
+        <div class="buttons">
+        <script>
+            var jmenoPrijmeni = "Ondřej Kučera";
+            document.write("<p class='barva'>Tento text je vypsán JavaScriptem " + jmenoPrijmeni + "</p>");
+
+        </script>
+        <p>Následující tlačítko bude spouštět funkci a počítat počet kliknutí.</p>
+        <p id="pocet" class="barva"></p>
+        <button class="primary ghost" onclick="pocitadlo()">KLIKNI</button>
+
+
+        <div class="buttons">
+            <a href="index.html">
+                <button class="primary ghost">Zpět na index</button>
+            </a>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

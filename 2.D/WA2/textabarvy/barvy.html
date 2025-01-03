@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barvy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card-container">
+
+        <h3>Cvičení: Barvy</h3>
+        <p>Změna barvy textu.</p>
+        <p>Barvu textu lze změnit pomocí css vlastnosti objektu.</p>
+
+        <div class="buttons">
+        <p>Pro každou barvu jiné tlačítko.</p>
+        <p id="text1">Barevný text</p>
+        <button class="primary ghost" onclick="cervena()">Červená</button>
+        <button class="primary ghost" onclick="modra()">Modrá</button>
+        <button class="primary ghost" onclick="zelena()">Zelená</button>
+
+        <script>
+            function cervena() {
+                document.getElementById("text1").style.color = "red";
+            }
+            function modra() {
+                document.getElementById("text1").style.color = "blue";
+            }
+            function zelena() {
+                document.getElementById("text1").style.color = "green";
+            }
+        </script>
+        <p>Pro každou barvu jiné tlačítko, ale stejná funkce (s parametrem).</p>
+        <p id="text2">Barevný text</p>
+        <button class="primary ghost" onclick="barva('red')">Červená</button>
+        <button class="primary ghost" onclick="barva('blue')">Modrá</button>
+        <button class="primary ghost" onclick="barva('green')">Zelená</button>
+        <script>
+            function barva(color) {
+                document.getElementById("text2").style.color = color;
+            }
+        </script>
+        <p>Pouze jedno tlačítko, kód barvy v globální proměnné.</p>
+        <p id="text3">Barevný text</p>
+        <button class="primary ghost" onclick="zmenaBarvy()">Červená-modrá-zelená</button>
+        <script>
+            var barvaTextu = "red";
+            function zmenaBarvy() {
+                if (barvaTextu == "red") {
+                    barvaTextu = "blue";
+                } else if (barvaTextu == "blue") {
+                    barvaTextu = "green";
+                } else {
+                    barvaTextu = "red";
+                }
+                document.getElementById("text3").style.color = barvaTextu;
+            }
+        </script>
+
+        <p>Pouze jedno tlačítko, kódy barev v poli.</p>
+        <p id="text4">Barevný text</p>
+        <button class="primary ghost" onclick="poleBarev()">Červená-modrá-zelená-žlutá</button>
+        <script>
+            var barvy = ["red", "blue", "green", "yellow"];
+            var index = -1;
+            function poleBarev() {
+                document.getElementById("text4").style.color = barvy[index];
+                index++;
+                if (index == barvy.length) {
+                    index = 0;
+                }
+            }
+        </script>
+
+        <p>Spuštění funkce v jiné funkci a spuštění se zpožděním.</p>
+        <button class="primary ghost" onclick="zmenaZaSekundu()">Změna barvy za 1 sekundu</button>
+        <script>
+            function neutralniBarva(){
+            document.getElementById("text4").style.color = "white";
+            }
+            function zmenaZaSekundu(){
+                neutralniBarva();
+                setTimeout("poleBarev()", 1000);
+            }
+        </script>
+
+
+
+        <p>Spuštění funkce v časovém intervalu a její zastavení.</p>
+        <button class="primary ghost" onclick="stridaniBarev()">Střídání barev</button>
+        <button class="primary ghost" onclick="stopStridani()">Zastavení střídání</button>
+        <script>
+            var stridani;
+            function stridaniBarev(){
+                stridani=setInterval("poleBarev()", 1000);
+            }
+            function stopStridani(){
+                clearInterval(stridani);
+            }
+        </script>
+
+</div>
+
+        <div class="buttons">
+            <a href="index.html">
+                <button class="primary ghost">Zpět na index</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Náhodné foto</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="card-container">
+    <h3>Náhodné strašidelné fotografie</h3>
+
+    <img id="foto" src="" alt="Náhodná fotografie">
+
+    <script>
+        function zobrazNahodnouFotografii() {
+            const pocetFotografii = 6;
+            const nahodneCislo = Math.floor(Math.random() * pocetFotografii) + 1;
+
+            document.getElementById("foto").src = `foto/foto${nahodneCislo}.JPG`;
+        }
+
+        window.onload = zobrazNahodnouFotografii;
+    </script>
+
+
+    </div>
+</body>
+</html>

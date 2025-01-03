@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color:#5E503F;
+    font-family: Montserrat, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.card-container {
+    background-color: #5E503F;
+    border: 1px solid #C6AC8F;
+    border-radius: 5px;
+    padding: 30px;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0px 10px 20px -10px rgb(8, 26, 26);
+    color: #dce1de;
+    position: relative;
+}
+
+.card-container .spse {
+    color: #000000;
+    background-color: #C6AC8F;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 3px 7px;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h3 {
+    margin: 10px 0;
+    color: #C6AC8F;
+}
+
+p {
+    font-size: 14px;
+    line-height: 21px;
+    color: #dce1de;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button.primary {
+    color: #dce1de;
+    background-color: transparent;
+    border: solid 1px #C6AC8F;
+    padding: 10px 25px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+button.primary:hover {
+    background-color: #C6AC8F;
+    color: #000000;
+}
+
+button.primary.ghost {
+    background-color: transparent;
+    color: #dce1de;
+}
+
+button.primary.ghost:hover {
+    background-color: #C6AC8F;
+    color: #000000;
+}
+
+a {
+    text-decoration: none;
+}
+
+.submenu {
+    width: 160px;
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+}
+
+
+.submenu li {
+    text-align: left;
+}
+
+.menu:hover .submenu {
+    display: block;
+}
+
+.submenu li a {
+    color: #dce1de;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.submenu li a:hover {
+    background-color: #C6AC8F;
+    color: #000;
+}
+
+/* Přizpůsobení pro mobilní zařízení */
+@media (max-width: 680px) {
+    header {
+        padding: 10px;
+    }
+
+    main {
+        width: 95%;
+    }
+
+    ul li a {
+        padding: 8px 10px;
+    }
+}

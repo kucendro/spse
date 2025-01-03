@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semafor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="semafor()">
+   <div class="centruj">
+    <div class="semafor">
+        <div id="red" class="light"></div>
+        <div id="orange" class="light"></div>
+        <div id="green" class="light"></div>
+    </div>
+
+    <script>
+        function rozsvitCervena() {
+            document.getElementById('red').classList.add('red');
+            document.getElementById('orange').classList.remove('orange');
+            document.getElementById('green').classList.remove('green');
+        }
+
+        function rozsvitOranzova() {
+            document.getElementById('red').classList.remove('red');
+            document.getElementById('orange').classList.add('orange');
+            document.getElementById('green').classList.remove('green');
+        }
+
+        function rozsvitZelena() {
+            document.getElementById('red').classList.remove('red');
+            document.getElementById('orange').classList.remove('orange');
+            document.getElementById('green').classList.add('green');
+        }
+
+        function semafor() {
+            rozsvitZelena();
+            setTimeout(rozsvitOranzova, 3000);
+            setTimeout(rozsvitCervena, 5000);
+            setTimeout(rozsvitOranzova, 8000);
+            setTimeout(rozsvitZelena, 10000);
+            setInterval(semafor, 12000);
+        }
+    </script>
+    </div> 
+</body>
+</html>

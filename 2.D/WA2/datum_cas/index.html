@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="cz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datum a čas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="beziciCas()">
+    <div class="card-container">
+        <header>
+            <h3>Datum a čas</h3>
+            <p id="datum"></p>
+            <p id="cas"></p>
+            <script>
+                function beziciCas() {
+                    var d = new Date();
+                    var den = d.getDate();
+                    var mesic = d.getMonth() + 1;
+                    var rok = d.getFullYear();
+                    var hodiny = d.getHours();
+                    var minuty = d.getMinutes();
+                    var sekundy = d.getSeconds();
+                    document.getElementById("datum").innerHTML = "Dnes je " + den + ". " + mesic + ". " + rok;
+                    document.getElementById("cas").innerHTML = "Čas: " + hodiny + ":" + minuty + ":" + sekundy;
+                    setTimeout(beziciCas, 1000);
+                }
+            </script>
+            <div>
+                <a href="../../../../rozcestnik/index.html">
+                    <button class="primary ghost">Zpět na index</button>
+                </a>
+            </div>
+        </header>
+    </div>
+</body>
+</html>

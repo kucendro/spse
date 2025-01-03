@@ -1,0 +1,36 @@
+body {
+    background-color: #5E503F;
+}
+.semafor {
+    width: 100px;
+    height: 300px;
+    background-color: black;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.light {
+    width: 80px;
+    height: 80px;
+    background-color: grey;
+    border-radius: 50%;
+}
+.red {
+    background-color: red;
+}
+.orange {
+    background-color: orange;
+}
+.green {
+    background-color: green;
+}
+.centruj {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
