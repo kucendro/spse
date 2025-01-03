@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kostky</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card-container">
+        <h3>Náhodné kostky</h3>
+        <br>
+        <div class="kostky">
+            <img src="img/1.png" alt="kostka1">
+            <img src="img/2.png" alt="kostka2">
+            <img src="img/3.png" alt="kostk3">
+        </div>
+        <p id="score">Body: 0</p>
+        <p id="pokusy">Zbývající pokusy: 5</p>
+    </div>
+
+    <script>
+        let kostky = document.querySelectorAll(".kostky img");
+        let interval = null
+        let score = 0;
+        let pokusy = 5;
+
+        function hod() {
+            const vysledky = [];
+            kostky.forEach(kostka => {
+                const nahodneCislo = Math.floor(Math.random() * 6) + 1;
+            kostka.src = `img/${nahodneCislo}.png`;
+            vysledky.push(nahodneCislo);
+            });
+            return vysledky;
+        }
+
+function hazej() {
+    if (interval) {
+        clearInterval(interval);
+        interval = null;
+        vyhodnot();
+    } else if (pokusy > 0) {
+        interval = setInterval(hod, 100);
+    }
+}
+
+function vyhodnot() {
+    pokusy--;
+    document.getElementById("pokusy").innerText = `Zbývá pokusů: ${pokusy}`;
+    const vysledky = hod();
+    const jedinecneVysledky = [...new Set(vysledky)];
+
+    if (jedinecneVysledky.length === 1) {
+        score += 10;
+    } else if (jedinecneVysledky.length === 2) {
+        score += 5;
+    } else {
+        score --;
+    }
+        document.getElementById("score").innerText = `Skóre: ${score}`;
+        if (pokusy === 0) {
+            alert(`Konec hry! Dosáhli jste skóre: ${score}`);
+        }
+    }
+
+    document.body.addEventListener("click", hazej);
+
+    </script>
+</body>
+</html>
