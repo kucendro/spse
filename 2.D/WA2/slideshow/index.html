@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <section id="slideshow">
+
+    <div>
+        <h1>Slideshow</h1>
+        <button id="autoButton" onclick="autozmena()">Automatická změna</button>
+        <button id="dalsiFoto" onclick="dalsi()">Další foto</button>
+    </div>
+
+
+    <div id="obrazek"></div>
+    <section id="body">
+        <span class="bod" id="bod1"></span>
+        <span class="bod" id="bod2"></span>
+        <span class="bod" id="bod3"></span>
+    </section>
+    <div><p></p></div>
+
+    <script>
+        let obrazky = ["1.jpeg", "2.jpeg", "3.jpeg"];
+        let index = 0;
+        let obrazek = document.getElementById("obrazek");
+        let body = document.getElementById("body");
+        let auto = false;
+        let intervalId;
+        let button = document.getElementById("autoButton");
+        let popisek = document.querySelector("p");
+
+        function zobrazObrazek() {
+            obrazek.innerHTML = "<img src='img/" + obrazky[index] + "'>";
+
+            if (index == 0) {
+                document.getElementById("bod1").style.backgroundColor = "red";
+                document.getElementById("bod2").style.backgroundColor = "white";
+                document.getElementById("bod3").style.backgroundColor = "white";
+                popisek.innerHTML = "Fotografie zachycuje největší blesk, který byl zachycen. Fotografie pořízena v obci Orel v roce 2024 s nastavením dlouhé expozice.  Následně byla upravena v programu Adobe Lightroom. HDR edit. @Ondřej Kučera";
+            } else if (index == 1) {
+                document.getElementById("bod2").style.backgroundColor = "red";
+                document.getElementById("bod1").style.backgroundColor = "white";
+                document.getElementById("bod3").style.backgroundColor = "white";
+                popisek.innerHTML = "Fotografie zachycuje delší blesk. Fotografie pořízena v obci Orel v roce 2024 s nastavením dlouhé expozice.  Následně byla upravena v programu Adobe Lightroom. HDR edit. @Ondřej Kučera";
+            } else {
+                document.getElementById("bod3").style.backgroundColor = "red";
+                document.getElementById("bod1").style.backgroundColor = "white";
+                document.getElementById("bod2").style.backgroundColor = "white";
+                popisek.innerHTML = "Jeden z nejhezčích, který byl zachycen. Fotografie pořízena v obci Orel v roce 2024 s nastavením dlouhé expozice.  Následně byla upravena v programu Adobe Lightroom. HDR edit. @Ondřej Kučera";
+            }
+        }
+
+        function zmenObrazek() {
+                index++;
+                if (index >= obrazky.length) {
+                    index = 0;
+                }
+                zobrazObrazek();
+            }
+
+        function zmenObrazekAuto() {
+            if (auto) {
+                intervalId = setInterval(zmenObrazek, 3000);
+                button.innerHTML = "Zastavit změnu";
+                button.style.backgroundColor = "red";
+            } else {
+                clearInterval(intervalId);
+                button.innerHTML = "Automatická změna";
+                button.style.backgroundColor = "#C6AC8F";
+            }
+        }
+
+        zobrazObrazek();
+
+        let body1 = document.getElementById("bod1");
+        let body2 = document.getElementById("bod2");
+        let body3 = document.getElementById("bod3");
+
+        body1.onclick = function() {
+            index = 0;
+            zobrazObrazek();
+            clearInterval(intervalId);
+            auto = false;
+            button.innerHTML = "Automatická změna";
+            button.style.backgroundColor = "#C6AC8F";
+        }
+
+        body2.onclick = function() {
+            index = 1;
+            zobrazObrazek();
+            clearInterval(intervalId);
+            auto = false;
+            button.innerHTML = "Automatická změna";
+            button.style.backgroundColor = "#C6AC8F";
+        }
+
+        body3.onclick = function() {
+            index = 2;
+            zobrazObrazek();
+            clearInterval(intervalId);
+            auto = false;
+            button.innerHTML = "Automatická změna";
+            button.style.backgroundColor = "#C6AC8F";
+        }
+
+        function autozmena() {
+            auto = !auto;
+            zmenObrazekAuto();
+        }
+
+        function dalsi() {
+            zmenObrazek();
+            clearInterval(intervalId);
+            auto = false;
+            button.innerHTML = "Automatická změna";
+            button.style.backgroundColor = "#C6AC8F";
+        }
+
+    </script>
+
+    </section>
+</body>
+</html>
