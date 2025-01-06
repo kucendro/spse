@@ -1,0 +1,130 @@
+body {
+    background-color:rgb(218, 222, 255);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+
+@media (min-width: 801px) {
+
+section {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+article {
+    background-color: antiquewhite;
+    padding: 30px;
+    margin: 10px;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 20px 20px;
+}
+
+#first {
+    background-color: rgb(196, 6, 85);
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#second {
+    background-color: rgb(1, 165, 161);
+    grid-column-start: 3;
+    grid-column-end: 6;
+}
+
+#third {
+    background-color: rgb(1, 153, 121);
+    grid-column-start: 6;
+    grid-column-end: 7;
+}
+
+#fourth {
+    background-color: rgb(37, 149, 220);
+    grid-column-start: 7;
+    grid-column-end: 8;
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+#fifth {
+    background-color: rgb(26, 109, 158);
+    grid-column-start: 8;
+    grid-column-end: 10;
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+#sixth {
+    background-color: rgb(234, 102, 2);
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#seventh {
+    background-color: rgb(255, 136, 96);
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 7;
+}
+}
+
+@media (max-width: 800px) {
+    section {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+    }
+    article {
+        background-color: antiquewhite;
+        padding: 30px 200px;
+        margin: 10px;
+        color: white;
+        font-size: 2em;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        border-radius: 20px 20px;
+    }
+    #first {
+        background-color: rgb(196, 6, 85);
+    }
+
+    #second {
+        background-color: rgb(1, 165, 161);
+    }
+
+    #third {
+        background-color: rgb(1, 153, 121);
+    }
+
+    #fourth {
+        background-color: rgb(37, 149, 220);
+    }
+
+    #fifth {
+        background-color: rgb(26, 109, 158);
+    }
+
+    #sixth {
+        background-color: rgb(234, 102, 2);
+    }
+
+    #seventh {
+        background-color: rgb(255, 136, 96);
+    }
+}
