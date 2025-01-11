@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kostky - Kučera</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body onclick="hazej()">
+
+    <marquee behavior="slide" direction="right">Kučera Kostky</marquee>
+
+    <section class="kostky">
+        <img class="kostka" id="1" src="1.png" alt="Kostka">
+        <img class="kostka" id="2" src="2.png" alt="Kostka">
+        <img class="kostka" id="3" src="3.png" alt="Kostka">
+        <img class="kostka" id="4" src="4.png" alt="Kostka">
+        <img class="kostka" id="5" src="5.png" alt="Kostka">
+        <img class="kostka" id="6" src="6.png" alt="Kostka">
+    </section>
+
+    <p id="zapis" >Počet bodů: 0</p>
+</body>
+
+    <script>
+        let random;
+        let running = false;
+        let images = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"]
+        let interval;
+        let pole = new Array();
+        let body = 0;
+        let test;
+
+        function hod() {
+            for (let i = 0; i < 6; i++) {
+
+                if (i == 0) {
+                    test = "1";
+                } if (i == 1) {
+                    test = "2";
+                } if (i == 2) {
+                    test = "3";
+                } if (i == 3) {
+                    test = "4";
+                } if (i == 4) {
+                    test = "5";
+                } if (i == 5) {
+                    test = "6";
+                }
+
+                random = Math.floor(Math.random() * 6) + 1;
+                document.getElementById(test).srcset = images[random -1];
+                pole[i] = random;
+
+            }
+
+        }
+
+        function hazej() {
+            if (running == false) {
+            running = true;
+            interval = setInterval(hod, 100);
+        } else {
+            clearInterval(interval);
+            console.log(pole);
+            running = false;
+
+            //for (j = 0; j < pole.length; j++ ) { zde nevím proč ale když procházím pole postupně a chci, aby v (pole[j].includes(1)) bylo j jako index mi píše chyba nejedná se o funkci. Bez toho j se ale stane, že se body vynásobí délkou pole. ???
+
+                if (pole.includes(1)) {
+                    body = body + 100;
+                }
+                if (pole.includes(5)) {
+                    body = body + 50;
+                }
+        }
+            if (pole.includes(1) && (pole.includes(2)) && (pole.includes(3)) && (pole.includes(4)) && (pole.includes(5)) && (pole.includes(6))) {
+                body = body + 3000;
+            }
+            document.getElementById("zapis").innerHTML = "Máš: " + body;
+        }
+    //}
+    </script>
+
+</html>
