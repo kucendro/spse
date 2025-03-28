@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
  *
  * @author Ondřej Kučera
  * Datum 10. 12. 2024
- * Omlouvám se za hrubé vyjadřívání v kódu, je cílen pro našeho učitele!
+ * Omlouvám se za hrubé vyjadřívání v kódu, je cílem pro našeho učitele!
  */
 
 public class Test1012 {
