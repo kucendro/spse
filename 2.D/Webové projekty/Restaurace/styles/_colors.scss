@@ -1,0 +1,12 @@
+$backgroundImg : '../assigments/img/bgn.jpg';
+$primaryColor : #1B1918;
+$secondaryColor : #8B3E1F;
+$selectionColor : rgb(214, 190, 141, 0.4);
+
+.line {
+    border-top: 2px solid $primaryColor;
+    width: $width100;
+    background: none;
+    color: transparent;
+    padding: $paddingTB;
+}

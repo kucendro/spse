@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>khaana</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script defer src="scripts/script.js"></script>
+    <link rel="shortcut icon" href="assigments/ico/Ikona.ico" type="image/x-icon">
+</head>
+<body class="main">
+  <header>
+    <div onclick="goToLanding()" class="first"><h1 class="logo">khaana</h1></div>
+    <div class="second"></div>
+    <div onclick="showSearch()" class="third"><a href="#">SEARCH</a></div>
+    <div onclick="showCart()" class="fourth"><a id="cart" href="#">CART</a></div>
+  </header>
+
+  <main>
+    <section class="left">
+      <nav>
+        <a href="pages/landing.html" target="contentFrame">HOME</a>
+        <a href="pages/menu.html" target="contentFrame">MENU</a>
+        <a href="pages/about.html" target="contentFrame">ABOUT</a>
+        <a href="pages/services.html" target="contentFrame">SERVICES</a>
+        <a href="pages/reserve.html" target="contentFrame">RESERVE</a>
+      </nav>
+
+      <nav class="navspodni">
+        <a href="https://www.instagram.com/kucendr.o/" target="_blank">IG</a>
+        <a href="https://www.facebook.com/kucendr.o/" target="_blank" >FB</a>
+      </nav>
+    </section>
+
+    <section class="right">
+      <iframe onchange="foodBar()" name="contentFrame" id="contentFrame" onload="this.contentWindow.scrollTo(0, 0);" src="pages/landing.html" frameborder="0" loading="lazy" sandbox="allow-scripts"></iframe>
+    </section>
+  </main>
+
+</body>
+</html>

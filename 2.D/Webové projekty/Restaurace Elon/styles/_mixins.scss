@@ -1,0 +1,55 @@
+@mixin fontClassic($size, $weight, $color) {
+    font-family: "Iceberg", sans-serif;
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}
+
+@mixin fontDecorative($size, $weight, $color) {
+    font-family: "Island Moments", cursive;
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin flexCenter($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexColumn($direction) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin flexRow($direction) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin flexWrap($wrap) {
+    flex-wrap: $wrap;
+}
+
+@mixin grid {
+    display: grid;
+    grid-template-columns: repeat(19, 1fr);
+    gap: 0;
+}
+
+
+@mixin bgrImg($url, $size, $position, $repeat) {
+    background-image: url($url);
+    background-size: $size;
+    background-position: $position;
+    background-repeat: $repeat;
+}

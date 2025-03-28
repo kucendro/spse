@@ -1,0 +1,54 @@
+header {
+    @include grid();
+    margin: $margin0;
+    padding: $padding0;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid $primaryColor;
+    .logo {
+        padding: $padding0;
+        margin: $margin0;
+    }
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: $height100;
+        padding: $paddingLR;
+    }
+    .first, .second, .third, .fourth {
+        border-right: 2px solid $primaryColor;
+    }
+    .first {
+        grid-column: 1/4;
+    }
+    .second {
+        grid-column: 4/14;
+        justify-content: flex-start;
+    }
+    .third {
+        grid-column: 14/17;
+    }
+    .fourth {
+        grid-column: 17/20;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        .logo {
+            font-size: 5vh;
+        }
+        .first, .second, .third, .fourth {
+            border-right: none;
+        }
+        .first, .second, .third, .fourth {
+            grid-column: 1/20;
+        }
+        .second, .third, .fourth {
+            display: none;
+        }
+    }
+}

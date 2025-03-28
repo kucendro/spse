@@ -1,0 +1,136 @@
+.menuSection {
+    @include flex(column, top, center);
+    width: 100%;
+    padding: $paddingTB;
+    margin: $margin0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    details {
+        cursor: pointer;
+        width: 100%;
+        padding: $padding0;
+        margin: $margin10;
+        border-top: 2px solid $primaryColor;
+        border-bottom: 2px solid $primaryColor;
+        @include flex(column, top, center);
+        transition: $transition;
+        &:hover {
+            scale: 1.01;
+            transition: $transition;
+        }
+        summary {
+            @include flex(row, space-between, center);
+            transition: $transition;
+            width: 100%;
+            & > * {
+                margin: $margin20;
+                padding: $padding0;
+                font-size: 2.5vh;
+                flex: 1
+            }
+            .addToCart {
+                border: none;
+            }
+        }
+        .menuFoodDescription {
+            @include flex(row, space-between, center);
+            p {
+                padding: $padding10;
+                margin: $margin10;
+                flex: 7;
+            }
+            img {
+                width: 5%;
+                padding: $padding10;
+                margin: $margin10;
+                flex: 1;
+            }
+        }
+    }
+}
+
+.afternoonMenu {
+    @include flex(column, top, flex-start);
+    width: 100%;
+    padding: $paddingLR;
+    margin: $marginTB;
+    h1 {
+        font-size: 5vh;
+    }
+    h3 {
+        padding: $padding30;
+        font-size: 3vh;
+    }
+    p {
+        font-size: 2.5vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .menuSection {
+        width: 100%;
+        padding: $paddingTB;
+        margin: $margin0;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        details {
+            width: 100%;
+            padding: $padding0;
+            margin: $margin10;
+            border-top: 2px solid $primaryColor;
+            border-bottom: 2px solid $primaryColor;
+            transition: $transition;
+            &:hover {
+                scale: 1.01;
+                transition: $transition;
+            }
+            summary {
+                h2 {
+                    font-size: 2vh;
+                    padding: 0.625rem 0;
+                    margin: 0;
+                }
+                a {
+                    font-size: 2vh;
+                }
+                .addToCart {
+                    font-size: 2vh;
+                }
+                transition: $transition;
+                width: 100%;
+                & > * {
+                    margin: $margin20;
+                    padding: $padding0;
+                    font-size: 2.5vh;
+                    flex: 1
+                }
+                .addToCart {
+                    border: none;
+                }
+            }
+            .menuFoodDescription {
+                @include flex(column, top, center);
+                p {
+                    padding: $padding10;
+                    margin: $margin10;
+                    flex: 4;
+                    font-size: 2vh;
+                }
+                img {
+                    width: 90%;
+                    padding: $padding10;
+                    margin: $margin10;
+                    flex: 3;
+                }
+            }
+        }
+    }
+    .afternoonMenu {
+        width: 100%;
+        padding: $paddingLR;
+        margin: $marginTB;
+        h3 {
+            padding: $padding30;
+        }
+    }
+}
