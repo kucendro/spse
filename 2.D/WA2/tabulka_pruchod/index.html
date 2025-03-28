@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabulka</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="startTimer()">
+    <div class="card-container">
+
+        <h3>Tabulka</h3>
+        <p>Zadejte rozměry a zkuste průchod</p>
+
+        <label>Řádky (m): <input type="number" id="rows" value="5"></label>
+        <label>Sloupce (n): <input type="number" id="cols" value="5"></label>
+        <table id="grid"></table>
+
+        <div class="buttons">
+            <a href="index.html">
+                <button class="primary ghost">Zpět na index</button>
+            </a>
+            <button onclick="genTable()">Vytvořit tabulku</button>
+        </div>
+    </div>
+
+    <script>
+        function genTable() {
+
+            // Promenne
+
+            let m = parseInt(document.getElementById("rows").value);
+
+            let n = parseInt(document.getElementById("cols").value);
+
+            let table = document.getElementById("grid");
+
+            table.innerHTML = "";
+
+            let walls = Math.floor((m * n) / 3);
+
+            let grid = [];
+
+
+            // Vytvoreni tabulky
+
+            for (let i = 0; i < m; i++) {
+                let row = table.insertRow();
+                grid[i] = [];
+                for (let j = 0; j < n; j++) {
+                    let cell = row.insertCell();
+                    cell.dataset.row = i;
+                    cell.dataset.col = j;
+                    grid[i][j] = cell;
+                }
+            }
+
+            // Vytvoreni zdi
+
+            for (let k = 0; k < walls; k++) {
+                let x, y;
+                do {
+                    x = Math.floor(Math.random() * m);
+                    y = Math.floor(Math.random() * n);
+                } while ((x === 0 && y === 0) || (x === m - 1 && y === n - 1) || grid[x][y].classList.contains("wall"));
+                grid[x][y].classList.add("wall");
+                grid[x][y].innerText = "X";
+            }
+        }
+
+    </script>
+</body>
+</html>
