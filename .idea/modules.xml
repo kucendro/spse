@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/1.D/1.D.iml" filepath="$PROJECT_DIR$/1.D/1.D.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2.D/prgr2/GIU/GIU.iml" filepath="$PROJECT_DIR$/2.D/prgr2/GIU/GIU.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2.D/prgr2/GUI 10. 12_/GUI 10. 12_.iml" filepath="$PROJECT_DIR$/2.D/prgr2/GUI 10. 12_/GUI 10. 12_.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2.D/prgr2/Test1012/Test1012.iml" filepath="$PROJECT_DIR$/2.D/prgr2/Test1012/Test1012.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2.D/prgr2/TestJFrame/TestJFrame.iml" filepath="$PROJECT_DIR$/2.D/prgr2/TestJFrame/TestJFrame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spse.iml" filepath="$PROJECT_DIR$/.idea/spse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2.D/prgr2/testSoubory/testSoubory.iml" filepath="$PROJECT_DIR$/2.D/prgr2/testSoubory/testSoubory.iml" />
+    </modules>
+  </component>
+</project>
