@@ -20,29 +20,19 @@
             <a href="index.html">
                 <button class="primary ghost">Zpět na index</button>
             </a>
-            <button onclick="genTable()">Vytvořit tabulku</button>
+            <button onclick="generateTable()">Vytvořit tabulku</button>
+            <button onclick="findPath()">Najít cestu</button>
         </div>
     </div>
 
     <script>
-        function genTable() {
-
-            // Promenne
-
+        function generateTable() {
             let m = parseInt(document.getElementById("rows").value);
-
             let n = parseInt(document.getElementById("cols").value);
-
             let table = document.getElementById("grid");
-
             table.innerHTML = "";
-
             let walls = Math.floor((m * n) / 3);
-
             let grid = [];
-
-
-            // Vytvoreni tabulky
 
             for (let i = 0; i < m; i++) {
                 let row = table.insertRow();
@@ -55,8 +45,6 @@
                 }
             }
 
-            // Vytvoreni zdi
-
             for (let k = 0; k < walls; k++) {
                 let x, y;
                 do {
@@ -68,6 +56,38 @@
             }
         }
 
+        function findPath() {
+            let m = document.getElementById("grid").rows.length;
+            let n = document.getElementById("grid").rows[0].cells.length;
+            let grid = [...document.getElementById("grid").rows].map(row => [...row.cells]);
+            let directions = [[1, 0], [0, 1], [-1, 0], [0, -1]];
+            let queue = [[0, 0]];
+            let prev = Array.from({ length: m }, () => Array(n).fill(null));
+
+            while (queue.length) {
+                let [r, c] = queue.shift();
+                if (r === m - 1 && c === n - 1) break;
+                for (let [dr, dc] of directions) {
+                    let nr = r + dr, nc = c + dc;
+                    if (nr >= 0 && nc >= 0 && nr < m && nc < n && !grid[nr][nc].classList.contains("wall") && !prev[nr][nc]) {
+                        prev[nr][nc] = [r, c];
+                        queue.push([nr, nc]);
+                    }
+                }
+            }
+
+            let path = [];
+            for (let at = [m - 1, n - 1]; at; at = prev[at[0]][at[1]]) {
+                path.push(at);
+            }
+            path.reverse();
+
+            if (path[0][0] === 0 && path[0][1] === 0) {
+                path.forEach(([r, c]) => grid[r][c].classList.add("path"));
+            } else {
+                alert("Cesta neexistuje!");
+            }
+        }
     </script>
 </body>
 </html>

@@ -115,18 +115,8 @@ a {
 
 table { border-collapse: collapse; margin-top: 10px; }
         td { width: 30px; height: 30px; text-align: center; border: 1px solid black; }
-        .wall { background-color: #C6AC8F; color: #dce1de; }
+        .wall { background-color: black; color: white; }
         .path { background-color: lightgreen; }
-label input {
-    background-color: transparent;
-    border: 1px solid #C6AC8F;
-    border-radius: 5px;
-    height: 40px;
-    width: 50%;
-    color: #dce1de;
-    font-size: 16px;
-    padding: 0 10px;
-}
 
 /* Přizpůsobení pro mobilní zařízení */
 @media (max-width: 680px) {

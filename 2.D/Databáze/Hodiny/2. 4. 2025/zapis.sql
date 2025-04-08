@@ -671,3 +671,4 @@ GROUP BY
 HAVING
     COUNT(uci.predmet) > 1;
 
+
