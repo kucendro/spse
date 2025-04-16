@@ -1,0 +1,42 @@
+function genTable() {
+
+            // Promenne
+
+            let m = parseInt(document.getElementById("rows").value);
+
+            let n = parseInt(document.getElementById("cols").value);
+
+            let table = document.getElementById("grid");
+
+            table.innerHTML = "";
+
+            let walls = Math.floor((m * n) / 3);
+
+            let grid = [];
+
+
+            // Vytvoreni tabulky
+
+            for (let i = 0; i < m; i++) {
+                let row = table.insertRow();
+                grid[i] = [];
+                for (let j = 0; j < n; j++) {
+                    let cell = row.insertCell();
+                    cell.dataset.row = i;
+                    cell.dataset.col = j;
+                    grid[i][j] = cell;
+                }
+            }
+
+            // Vytvoreni zdi
+
+            for (let k = 0; k < walls; k++) {
+                let x, y;
+                do {
+                    x = Math.floor(Math.random() * m);
+                    y = Math.floor(Math.random() * n);
+                } while ((x === 0 && y === 0) || (x === m - 1 && y === n - 1) || grid[x][y].classList.contains("wall"));
+                grid[x][y].classList.add("wall");
+                grid[x][y].innerText = "X";
+            }
+        }
