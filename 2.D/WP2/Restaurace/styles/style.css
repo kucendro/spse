@@ -875,6 +875,7 @@ main .right iframe {
   justify-content: top;
   align-items: center;
   overflow-y: scroll;
+  overflow-x: hidden;
   width: 100%;
 }
 .reserve .logo {

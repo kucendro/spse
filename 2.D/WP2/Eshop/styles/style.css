@@ -1,0 +1,148 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Iceberg&family=Island+Moments&display=swap");
+.line {
+  border-top: 2px solid #1B1918;
+  width: 100%;
+  background: none;
+  color: transparent;
+  padding: 1.25rem 0;
+}
+
+.logo {
+  font-family: "Island Moments", cursive;
+  font-size: 7vh;
+  font-weight: 700;
+  color: #1B1918;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.kosik {
+  max-height: 70%;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  fill: #1B1918;
+}
+.kosik:hover {
+  fill: #8B3E1F;
+  transition: 0.3s;
+}
+
+.addToCart {
+  background-color: transparent;
+  color: #1B1918;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Iceberg", sans-serif;
+  font-size: 2.5vh;
+  font-weight: 700;
+  color: #1B1918;
+  transition: 0.3s;
+  cursor: pointer;
+  border-bottom: 2px dashed #1B1918;
+}
+.addToCart:hover {
+  color: #8B3E1F;
+  transition: 0.3s;
+  border-bottom: 2px solid #8B3E1F;
+}
+
+.goToMenu {
+  border: 2px dashed #1B1918;
+  padding: 0.625rem;
+}
+.goToMenu:hover {
+  border-color: #8B3E1F;
+}
+
+.food {
+  font-family: "Island Moments", cursive;
+  font-size: 10vh;
+  font-weight: 700;
+  color: #1B1918;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-family: "Iceberg", sans-serif;
+  font-size: 5vh;
+  font-weight: 700;
+  color: #1B1918;
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  font-family: "Iceberg", sans-serif;
+  font-size: 2.5vh;
+  font-weight: 300;
+  color: #1B1918;
+  padding: 0;
+  margin: 0;
+}
+
+h3 {
+  font-family: "Iceberg", sans-serif;
+  font-size: 2.5vh;
+  font-weight: 700;
+  color: #1B1918;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  font-family: "Iceberg", sans-serif;
+  font-size: 2.5vh;
+  font-weight: 300;
+  color: #1B1918;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  font-family: "Iceberg", sans-serif;
+  font-size: 3vh;
+  font-weight: 400;
+  color: #1B1918;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  transition: 0.3s;
+}
+a:hover {
+  color: #8B3E1F;
+  transition: 0.3s;
+}
+
+body, html {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  background-image: url("../assigments/img/bgn.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+::-moz-selection {
+  background: rgba(214, 190, 141, 0.4); /* Oranžová */
+  color: #8B3E1F; /* Bílý text */
+}
+
+::selection {
+  background: rgba(214, 190, 141, 0.4); /* Oranžová */
+  color: #8B3E1F; /* Bílý text */
+}/*# sourceMappingURL=style.css.map */
