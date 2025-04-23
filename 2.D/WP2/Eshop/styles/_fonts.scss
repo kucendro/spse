@@ -1,87 +1,87 @@
 @import url('https://fonts.googleapis.com/css2?family=Iceberg&family=Island+Moments&display=swap');
 
-.logo {
-    @include fontDecorative(7vh, 700, $primaryColor);
-    padding: $padding0;
-    margin: $margin0;
-    cursor: pointer;
-}
-
-.kosik {
-    max-height: 70%;
-    max-width: max-content;
-    cursor: pointer;
-    padding: $padding0;
-    margin: $margin0;
-    fill: $primaryColor;
-    &:hover {
-        fill: $secondaryColor;
-        transition: $transition;
-    }
-}
-
-.addToCart {
-    background-color: transparent;
-    color: $primaryColor;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    @include fontClassic(2.5vh, 700, $primaryColor);
-    transition: $transition;
-    cursor: pointer;
-    border-bottom: 2px dashed $primaryColor;
-    &:hover{
-        color: $secondaryColor;
-        transition: $transition;
-        border-bottom: 2px solid $secondaryColor;
-    }
-}
-.goToMenu {
-    border: 2px dashed $primaryColor;
-    padding: $padding10;
-    &:hover {
-        border-color: $secondaryColor;
-    }
-}
-
-.food {
-    @include fontDecorative(10vh, 700, $primaryColor);
-    padding: $padding0;
-    margin: $margin0;
-}
-
-h1 {
-    @include fontClassic(5vh, 700, $primaryColor);
-    padding: $padding0;
-    margin: $margin0;
-}
-
-h2 {
-    @include fontClassic(2.5vh, 300, $primaryColor);
-    padding: $padding0;
-    margin: $margin0;
-}
-
-h3 {
-    @include fontClassic(2.5vh, 700, $primaryColor);
-    padding: $padding0;
-    margin: $margin0;
-}
-
-p {
-    @include fontClassic(2.5vh, 300, $primaryColor);
-    padding: $padding0;
-    margin: $margin0;
-}
-
-a {
-    @include fontClassic(3vh, 400, $primaryColor);
-    padding: $padding0;
-    margin: $margin0;
-    text-decoration: none;
-    transition: $transition;
-    &:hover {
-        color: $secondaryColor;
-        transition: $transition;
-    }
-}
+//.logo {
+//    @include fontDecorative(7vh, 700, $primaryColor);
+//    padding: $padding0;
+//    margin: $margin0;
+//    cursor: pointer;
+//}
+//
+//.kosik {
+//    max-height: 70%;
+//    max-width: max-content;
+//    cursor: pointer;
+//    padding: $padding0;
+//    margin: $margin0;
+//    fill: $primaryColor;
+//    &:hover {
+//        fill: $secondaryColor;
+//        transition: $transition;
+//    }
+//}
+//
+//.addToCart {
+//    background-color: transparent;
+//    color: $primaryColor;
+//    display: flex;
+//    justify-content: space-between;
+//    align-items: center;
+//    @include fontClassic(2.5vh, 700, $primaryColor);
+//    transition: $transition;
+//    cursor: pointer;
+//    border-bottom: 2px dashed $primaryColor;
+//    &:hover{
+//        color: $secondaryColor;
+//        transition: $transition;
+//        border-bottom: 2px solid $secondaryColor;
+//    }
+//}
+//.goToMenu {
+//    border: 2px dashed $primaryColor;
+//    padding: $padding10;
+//    &:hover {
+//        border-color: $secondaryColor;
+//    }
+//}
+//
+//.food {
+//    @include fontDecorative(10vh, 700, $primaryColor);
+//    padding: $padding0;
+//    margin: $margin0;
+//}
+//
+//h1 {
+//    @include fontClassic(5vh, 700, $primaryColor);
+//    padding: $padding0;
+//    margin: $margin0;
+//}
+//
+//h2 {
+//    @include fontClassic(2.5vh, 300, $primaryColor);
+//    padding: $padding0;
+//    margin: $margin0;
+//}
+//
+//h3 {
+//    @include fontClassic(2.5vh, 700, $primaryColor);
+//    padding: $padding0;
+//    margin: $margin0;
+//}
+//
+//p {
+//    @include fontClassic(2.5vh, 300, $primaryColor);
+//    padding: $padding0;
+//    margin: $margin0;
+//}
+//
+//a {
+//    @include fontClassic(3vh, 400, $primaryColor);
+//    padding: $padding0;
+//    margin: $margin0;
+//    text-decoration: none;
+//    transition: $transition;
+//    &:hover {
+//        color: $secondaryColor;
+//        transition: $transition;
+//    }
+//}

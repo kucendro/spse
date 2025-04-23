@@ -11,11 +11,11 @@ body, html {
     width: $width100;
     height: $height100;
 }
-.main {
-    @include bgrImg( $backgroundImg, cover, center, no-repeat);
-}
-
-::selection {
-    background: $selectionColor; /* Oranžová */
-    color: $secondaryColor; /* Bílý text */
-}
+//.main {
+//    @include bgrImg( $backgroundImg, cover, center, no-repeat);
+//}
+//
+//::selection {
+//    background: $selectionColor; /* Oranžová */
+//    color: $secondaryColor; /* Bílý text */
+//}
