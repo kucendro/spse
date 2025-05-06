@@ -1,0 +1,21 @@
+name: Deploy Static Website to Wedos FTP
+
+on:
+  push:
+    branches:
+      - main  # Spustí se při pushi do hlavní větve
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: 368205.w5.wedos.net  # Tvůj FTP server na Wedosu
+          username: w368205_kucendro            # Tvůj FTP login
+          password: ${{ secrets.FTP_PASSWORD }}  # Heslo jako tajný klíč
+          server-dir: domains/trail.kucendro.eu/  # Cílová složka na hostingu
