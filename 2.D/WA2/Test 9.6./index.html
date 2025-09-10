@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="cz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+
+    <style>
+        body {
+            display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; background-color: #e7a57e; font-family: Arial, sans-serif; color: #333; gap: 10vh;
+        }
+        section {
+            display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1; width: 100%; max-width: 600px; padding: 20px; background-color: #ffffff6b; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #333; color: white; border: none; padding: 10px 20px; cursor: pointer; font-size: 16px; border-radius: 5px;;
+        }
+        ul {
+            list-style-type: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 5px;
+        }
+        li { color: #333; border: 2px solid #333; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex: 1; min-width: 150px; text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Test WA 25 - Ondřej Kučera</h1>
+    <button onclick="reset()">Reset</button>
+
+    <section>
+        <h2>1. Klikací čtverec (DOM + Události)</h2>
+        <div style="width: 100px; height: 100px; background-color: transparent; border: 1px solid #333;" class="rectangle"></div>
+    </section>
+
+    <section>
+        <h2>2. Zamíchej a zobraz (Práce s poli)</h2>
+        <ul id="studentList"></ul>
+        <button id="shuffleButton">Zamíchat</button>
+    </section>
+
+    <section>
+        <h2>3. Časová bomba (Události + Podmínky)</h2>
+        <p id="Countdown"></p>
+        <button id="activateBombButton">Aktivuj bombu</button>
+        <button id="stopBombButton">Zastavit bombu</button>
+        <p style="font-size: 5vh;" id="bombMessage"></p>
+    </section>
+
+    <section>
+        <h2>4. Hlasování (DOM + Objekty)</h2>
+        <div>
+            <label for="voteInput">Zadej svou volbu:</label>
+            <input type="text" id="voteInput" placeholder="Např. Soukup" />
+            <button id="voteButton">Hlasuj</button>
+        </div>
+        <div id="results" style="margin-top: 10px; display: flex; flex-direction: column; gap: 5px; align-items: start; width: 100%;"></div>
+        <script>
+        </script>
+    </section>
+
+
+    <section>
+        <h2>5. Tabulka násobků (Základní konstrukce + DOM)</h2>
+        <input type="number" id="multiplierInput" placeholder="Zadej číslo" />
+        <button id="generateTableButton">Generovat tabulku</button>
+        <table id="multiplicationTable" style="border-collapse: collapse; margin-top: 10px;"></table>
+    </section>
+
+    <section>
+        <h2>6. Interaktivní kalkulačka (DOM + Události + Podmínky)</h2>
+        <div>
+            <input type="number" id="num1" placeholder="První číslo" />
+            <input type="number" id="num2" placeholder="Druhé číslo" />
+            <select id="operation">
+                <option value="add">Sčítání</option>
+                <option value="subtract">Odčítání</option>
+                <option value="multiply">Násobení</option>
+                <option value="divide">Dělení</option>
+            </select>
+            <button id="calculateButton">Spočítej</button>
+        </div>
+        <div id="result" style="margin-top: 10px;"></div>
+    </section>
+
+    <script>
+        // Reload page
+        function reset() {
+            location.reload();
+        }
+
+        // Rectangle
+        const rectangle = document.querySelector('.rectangle');
+        let clickCount = 0;
+        rectangle.addEventListener('click', () => {
+            if (clickCount < 5) {
+                const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+                rectangle.style.backgroundColor = randomColor;
+                clickCount++;
+            }
+            if (clickCount === 5) {
+                rectangle.style.borderRadius = '50%';
+                rectangle.removeEventListener('click', arguments.callee);
+            }
+        });
+
+
+        // Shuffle
+        const students = [
+            'Tomáš Budina', 'Martin Budina', 'Lea Bednaříková', 'Miroslav Zeman', 'Libor Adámek',
+            'Čestmír Bárta', 'Martin Braun', 'Rey Koranteng', 'Jaromír Soukup', 'Elon Musk'
+        ];
+        const studentList = document.getElementById('studentList');
+        const shuffleButton = document.getElementById('shuffleButton');
+        function shuffleAndDisplay() {
+            const shuffledStudents = students.sort(() => Math.random() - 0.5);
+            studentList.innerHTML = '';
+            for (let i = 0; i < 3; i++) {
+                const li = document.createElement('li');
+                li.textContent = shuffledStudents[i];
+                studentList.appendChild(li);
+            }
+        }
+        shuffleButton.addEventListener('click', shuffleAndDisplay);
+        shuffleAndDisplay();
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        });
+
+
+        // Bomb
+        let countdown;
+            const bombMessage = document.getElementById('bombMessage');
+            const activateBombButton = document.getElementById('activateBombButton');
+            const stopBombButton = document.getElementById('stopBombButton');
+            const countdownDisplay = document.getElementById('Countdown');
+            
+            let timeLeft = 10;
+
+            activateBombButton.addEventListener('click', () => {
+                bombMessage.textContent = '';
+                clearTimeout(countdown);
+                countdownDisplay.textContent = `Čas do výbuchu: ${timeLeft} sekund`;
+                countdown = setInterval(() => {
+                    timeLeft--;
+                    countdownDisplay.textContent = `Čas do výbuchu: ${timeLeft} sekund`;
+                    if (timeLeft <= 0) {
+                        clearInterval(countdown);
+                        bombMessage.textContent = '💥 Bum!';
+                    }
+                }, 1000);
+                });
+
+            stopBombButton.addEventListener('click', () => {
+                clearTimeout(countdown);
+                bombMessage.textContent = 'Bomba zastavena!';
+            });
+
+            // Voting
+            const votes = {};
+            const voteInput = document.getElementById('voteInput');
+            const voteButton = document.getElementById('voteButton');
+            const resultsDiv = document.getElementById('results');
+
+            voteButton.addEventListener('click', () => {
+                const choice = voteInput.value.trim();
+                if (choice) {
+                    votes[choice] = (votes[choice] || 0) + 1;
+                    displayResults();
+                    voteInput.value = '';
+                }
+            });
+
+            function displayResults() {
+                resultsDiv.innerHTML = '';
+                for (const [choice, count] of Object.entries(votes)) {
+                    const resultDiv = document.createElement('div');
+                    resultDiv.textContent = `${choice}: ${count}`;
+                    resultDiv.style.width = `${count * 50}px`;
+                    resultDiv.style.backgroundColor = '#4CAF50';
+                    resultDiv.style.color = '#333';
+                    resultDiv.style.padding = '10px';
+                    resultDiv.style.margin = '5px 0';
+                    resultDiv.style.borderRadius = '5px';
+                    resultDiv.style.textWrap = 'nowrap';
+                    resultsDiv.appendChild(resultDiv);
+                }
+            }
+
+            // Table
+            document.getElementById('generateTableButton').addEventListener('click', function() {
+                const input = document.getElementById('multiplierInput').value;
+                const table = document.getElementById('multiplicationTable');
+                table.innerHTML = '';
+
+                for (let i = 1; i <= 10; i++) {
+                    const row = table.insertRow();
+                    const cell = row.insertCell(0);
+                    cell.textContent = `${input} x ${i} = ${input * i}`;
+                    if (i % 5 === 0) {
+                        cell.style.backgroundColor = '#4CAF50';
+                    }
+                }
+            });
+
+            // Calculator
+            document.getElementById('calculateButton').addEventListener('click', function() {
+                const num1 = parseFloat(document.getElementById('num1').value);
+                const num2 = parseFloat(document.getElementById('num2').value);
+                const operation = document.getElementById('operation').value;
+                let result;
+
+                if (isNaN(num1) || isNaN(num2)) {
+                    result = 'Zadej platná čísla.';
+                } else {
+                    switch (operation) {
+                        case 'add':
+                            result = num1 + num2;
+                            break;
+                        case 'subtract':
+                            result = num1 - num2;
+                            break;
+                        case 'multiply':
+                            result = num1 * num2;
+                            break;
+                        case 'divide':
+                            if (num2 === 0) {
+                                result = 'Dělit nulou nelze !!!!!!!!!!';
+                            } else {
+                                result = num1 / num2;
+                            }
+                            break;
+                        default:
+                            result = 'Neznámá operace.';
+                    }
+                }
+                document.getElementById('result').textContent = `Výsledek: ${result}`;
+            });
+    </script>
+</body>
+</html>

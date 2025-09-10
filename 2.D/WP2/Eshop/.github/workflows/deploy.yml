@@ -3,7 +3,7 @@ name: Deploy Static Website to Wedos FTP
 on:
   push:
     branches:
-      - main  # Spustí se při pushi do hlavní větve
+      - master  # Spustí se při pushi do hlavní větve
 
 jobs:
   ftp-deploy:

@@ -1,15 +1,18 @@
-@mixin fontClassic($size, $weight, $color) {
-    font-family: "Iceberg", sans-serif;
-    font-size: $size;
+@mixin Funnel($size, $weight, $color) {
+    font-family: "Funnel Sans", sans-serif;
     font-weight: $weight;
+    font-size: $size;
     color: $color;
+    font-style: normal;
+
 }
 
-@mixin fontDecorative($size, $weight, $color) {
-    font-family: "Island Moments", cursive;
-    font-size: $size;
+@mixin Zain($size, $weight, $color) {
+    font-family: "Zain", sans-serif;
     font-weight: $weight;
+    font-size: $size;
     color: $color;
+    font-style: normal;
 }
 
 @mixin flex($direction, $justify, $align) {
@@ -52,4 +55,25 @@
     background-size: $size;
     background-position: $position;
     background-repeat: $repeat;
+}
+
+@mixin productCard($img, $margin) {
+    width: 300px;
+    height: 300px;
+    padding: $padding30;
+    margin: $margin;
+    background-color: black;
+    background-image: url($img);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+    }
+}
+
+.productCard {
+    @include productCard('../assigments/img/kohla-track-pro-30l-red-orange--caviar-red-orange--caviar04205.jpg', $margin20);
 }

@@ -1,13 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Iceberg&family=Island+Moments&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
 
-//.logo {
-//    @include fontDecorative(7vh, 700, $primaryColor);
-//    padding: $padding0;
-//    margin: $margin0;
-//    cursor: pointer;
-//}
-//
-//.kosik {
+.heroBigFont {
+   @include Zain(15vh, 700, $white);
+    padding: $padding0;
+    margin: $margin0;
+    @include flexCenter(column);
+    @include flexWrap(wrap);
+}
+
+.logo {
+    @include Zain(10vh, 700, $black);
+    padding: $padding0;
+    margin: $margin0;
+    @include flexCenter(column);
+}
+
+// h1 {
+//     @include fontClassic(5vh, 700, $primaryColor);
+//     padding: $padding0;
+//     margin: $margin0;
+//  }
+
+//  h2 {
+//     @include fontClassic(2.5vh, 300, $primaryColor);
+//     padding: $padding0;
+//     margin: $margin0;
+//  }
+
+//  h3 {
+//     @include fontClassic(2.5vh, 700, $primaryColor);
+//     padding: $padding0;
+//     margin: $margin0;
+//  }
+
+//  p {
+//     @include fontClassic(2.5vh, 300, $primaryColor);
+//     padding: $padding0;
+//     margin: $margin0;
+//  }
+
+//  a {
+//     @include fontClassic(3vh, 400, $primaryColor);
+//     padding: $padding0;
+//     margin: $margin0;
+//     text-decoration: none;
+//     transition: $transition;
+//     &:hover {
+//         color: $secondaryColor;
+//         transition: $transition;
+//     }
+//  }
+
+// .kosik {
 //    max-height: 70%;
 //    max-width: max-content;
 //    cursor: pointer;
@@ -18,9 +62,9 @@
 //        fill: $secondaryColor;
 //        transition: $transition;
 //    }
-//}
-//
-//.addToCart {
+// }
+
+// .addToCart {
 //    background-color: transparent;
 //    color: $primaryColor;
 //    display: flex;
@@ -35,53 +79,17 @@
 //        transition: $transition;
 //        border-bottom: 2px solid $secondaryColor;
 //    }
-//}
-//.goToMenu {
+// }
+// .goToMenu {
 //    border: 2px dashed $primaryColor;
 //    padding: $padding10;
 //    &:hover {
 //        border-color: $secondaryColor;
 //    }
-//}
-//
-//.food {
+// }
+
+// .food {
 //    @include fontDecorative(10vh, 700, $primaryColor);
 //    padding: $padding0;
 //    margin: $margin0;
-//}
-//
-//h1 {
-//    @include fontClassic(5vh, 700, $primaryColor);
-//    padding: $padding0;
-//    margin: $margin0;
-//}
-//
-//h2 {
-//    @include fontClassic(2.5vh, 300, $primaryColor);
-//    padding: $padding0;
-//    margin: $margin0;
-//}
-//
-//h3 {
-//    @include fontClassic(2.5vh, 700, $primaryColor);
-//    padding: $padding0;
-//    margin: $margin0;
-//}
-//
-//p {
-//    @include fontClassic(2.5vh, 300, $primaryColor);
-//    padding: $padding0;
-//    margin: $margin0;
-//}
-//
-//a {
-//    @include fontClassic(3vh, 400, $primaryColor);
-//    padding: $padding0;
-//    margin: $margin0;
-//    text-decoration: none;
-//    transition: $transition;
-//    &:hover {
-//        color: $secondaryColor;
-//        transition: $transition;
-//    }
-//}
+// }

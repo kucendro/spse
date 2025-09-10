@@ -1,4 +1,50 @@
-@import url("https://fonts.googleapis.com/css2?family=Iceberg&family=Island+Moments&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap");
+.productCard {
+  width: 300px;
+  height: 300px;
+  padding: 1.875rem;
+  margin: 1.25rem;
+  background-color: black;
+  background-image: url("../assigments/img/kohla-track-pro-30l-red-orange--caviar-red-orange--caviar04205.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease-in-out;
+}
+.productCard:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.heroBigFont {
+  font-family: "Zain", sans-serif;
+  font-weight: 700;
+  font-size: 15vh;
+  color: #ffffff;
+  font-style: normal;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: "Zain", sans-serif;
+  font-weight: 700;
+  font-size: 10vh;
+  color: rgb(18, 18, 18);
+  font-style: normal;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 body, html {
   display: flex;
   flex-direction: column;
