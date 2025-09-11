@@ -1,0 +1,15 @@
+{
+    "name": "mpmp/uvod",
+    "autoload": {
+        "psr-4": {
+            "Mpmp\\Uvod\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ondřej Kučera",
+            "email": "kucera@deepvision.cz"
+        }
+    ],
+    "require": {}
+}
