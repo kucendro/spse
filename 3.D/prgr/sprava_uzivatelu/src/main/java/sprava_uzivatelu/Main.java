@@ -11,37 +11,11 @@ public class Main {
 
                 SwingUtilities.invokeLater(() -> new GUI().setVisible(true));
 
-                // ! --------------------------------------------------------- FOR DEMO
-
-                // ! ADMIN LOGIN = admin / 1234
                 UsersTable users = UsersTable.getInstance();
                 PersonsTable persons = PersonsTable.getInstance();
-                users.addUser(
-                                new User("" + System.currentTimeMillis(), "admin", true,
-                                                "$2a$12$zmoai/ByAR.37XHRr.O4R.DvHo.9PM/ToN3nGPazhnld/CQuaGIX.", null,
-                                                false));
 
-                // ? SOME USERS TO DEMO
-
-                // 1 = kucendro / 1234
-                String user1 = "" + System.currentTimeMillis() + 1;
-                users.addUser(new User(user1, "kucendro", false,
-                                "$2a$12$zmoai/ByAR.37XHRr.O4R.DvHo.9PM/ToN3nGPazhnld/CQuaGIX.", user1, false));
-
-                persons.addPerson(new Person(user1, "Ondřej", "Kučera", "Mr.", "", "03-04-2008", "000000/1000",
-                                "Pardubice 142", "Pardubice", "53821", "CZ", "+420721467488", "ondrej@kucendro.eu",
-                                false, true,
-                                false));
-
-                // 2 = bajer / 1234
-                String user2 = "" + System.currentTimeMillis() + 2;
-                users.addUser(new User(user2, "bajer", false,
-                                "$2a$12$zmoai/ByAR.37XHRr.O4R.DvHo.9PM/ToN3nGPazhnld/CQuaGIX.", user2, false));
-
-                persons.addPerson(new Person(user2, "Libor", "Bajer", "Ing.", "", "12-11-2005", "051112/1234",
-                                "Nad Vodovodem 1", "Brno", "61200", "CZ", "+420777123456", "martin@bajer.eu", false,
-                                false,
-                                false));
+                users.load();
+                persons.load();
         }
 }
 

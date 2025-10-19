@@ -1,10 +1,16 @@
 package sprava_uzivatelu;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.HashMap;
 
 import javax.swing.JOptionPane;
 
 public class UsersTable {
+
+    public static String storeDir = "store";
+    public static String usersCSV = "users.csv";
 
     private static UsersTable instance;
 
@@ -79,10 +85,10 @@ public class UsersTable {
         }
     }
 
-    public void assignPersonToUser(String id, Person person) {
+    public void assignPersonToUser(String id, String personId) {
         User user = users.get(id);
         if (user != null) {
-            user.setPerson_Id(person.id);
+            user.setPerson_Id(personId);
         } else {
             JOptionPane.showMessageDialog(null, "User with ID " + id + " not found.", "Error",
                     JOptionPane.ERROR_MESSAGE);
@@ -95,6 +101,81 @@ public class UsersTable {
         } else {
             JOptionPane.showMessageDialog(null, "User with ID " + user.getId() + " not found.", "Error",
                     JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void setRemoved(String id, boolean removed) {
+        User user = users.get(id);
+        if (user != null) {
+            user.setRemoved(removed);
+        } else {
+            JOptionPane.showMessageDialog(null, "User with ID " + id + " not found.", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void clearFile() {
+        try {
+            PrintWriter writer = new PrintWriter(new FileWriter(storeDir + "/" + usersCSV));
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void store() {
+        try {
+            PrintWriter writer = new PrintWriter(new FileWriter(storeDir + "/" + usersCSV, true));
+            for (User user : users.values()) {
+                writer.println(user.getId() + "; " + user.getUsername() + "; " + user.isAdmin() + "; "
+                        + user.getPassword() + "; " + user.getPersonId() + "; " + user.isRemoved());
+            }
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void save() {
+        if (new File(storeDir).isDirectory() && new File(storeDir + "/" + usersCSV).exists()) {
+            clearFile();
+            store();
+        } else if (new File(storeDir).isDirectory() && !new File(storeDir + "/" + usersCSV).exists()) {
+            new File(storeDir + "/" + usersCSV);
+            store();
+        } else {
+            new File(storeDir).mkdir();
+            new File(storeDir + "/" + usersCSV);
+            store();
+        }
+
+    }
+
+    public void load() {
+        try {
+            File file = new File(storeDir + "/" + usersCSV);
+            if (!file.exists()) {
+                return;
+            }
+            java.util.Scanner scan = new java.util.Scanner(file);
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                String[] parts = line.split("; ");
+                if (parts.length >= 6) {
+                    String id = parts[0];
+                    String username = parts[1];
+                    boolean isAdmin = Boolean.parseBoolean(parts[2]);
+                    String password = parts[3];
+                    String personId = parts[4];
+                    boolean isRemoved = Boolean.parseBoolean(parts[5]);
+                    User user = new User(id, username, isAdmin, password, personId, isRemoved);
+                    addUser(user);
+                }
+            }
+            scan.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

@@ -1,9 +1,5 @@
 # Dokumentace k projektu Správa uživatelů
 
-## Úvod
-
-Tato dokumantace k ručně psanému kódu byla generována pomocí AI inbuild in IDE.
-S dokumentací se mi opravdu nechtělo vymýšlet od píky, když už ji budu přepisovat ručně a již teď jsem na projektu strávil více jak 40 (neplacených) hodin.
 
 ## 1. Principy a možnosti práce s regulárními výrazy
 

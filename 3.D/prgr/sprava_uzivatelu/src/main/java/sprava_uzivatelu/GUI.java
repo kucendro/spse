@@ -17,6 +17,18 @@ public class GUI extends JFrame {
     private void initGUI() {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // on close save
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                UsersTable usersTable = UsersTable.getInstance();
+                usersTable.save();
+                PersonsTable personsTable = PersonsTable.getInstance();
+                personsTable.save();
+
+                // PersonsTable personsTable = PersonsTable.getInstance();
+                // personsTable.save();
+            }
+        });
         setLayout(new BorderLayout());
 
         loginPanel(true);
@@ -168,20 +180,15 @@ public class GUI extends JFrame {
 
         if (user.isAdmin()) {
             adminPanel(user);
-        } else if (user.getPersonId() == null && user.isAdmin() == false && user.isRemoved() == false) {
+        } else if (user.isRemoved()) {
+            JOptionPane.showMessageDialog(this,
+                    "Your person was removed by admin.", "Warning",
+                    JOptionPane.ERROR_MESSAGE);
+            loginPanel(true);
+        } else if (user.person_id == null || user.person_id.isEmpty() || user.person_id.equals("null")) {
             registerPersonPannel(user);
         } else {
-            PersonsTable personsTable = PersonsTable.getInstance();
-            Person person = personsTable.getPerson(user.getPersonId());
-
-            if (person != null) {
-                personPanel(user, user.getPersonId());
-            } else {
-                JOptionPane.showMessageDialog(this,
-                        "Your person was removed by admin.", "Warning",
-                        JOptionPane.ERROR_MESSAGE);
-                loginPanel(true);
-            }
+            personPanel(user, user.id);
         }
 
         setVisible(visible);
@@ -213,7 +220,7 @@ public class GUI extends JFrame {
         nameField.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
             private void validate() {
                 String text = nameField.getText();
-                boolean valid = text.matches("^[A-Za-záčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]+$") && !text.contains(" ");
+                boolean valid = text.matches("^[A-Za-záčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ-]+$");
                 nameField.setForeground(valid ? Color.BLACK : Color.RED);
             }
 
@@ -237,7 +244,7 @@ public class GUI extends JFrame {
         surnameField.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
             private void validate() {
                 String text = surnameField.getText();
-                boolean valid = text.matches("^[A-Za-záčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]+$") && !text.contains(" ");
+                boolean valid = text.matches("^[A-Za-záčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ-]+$");
                 surnameField.setForeground(valid ? Color.BLACK : Color.RED);
             }
 
@@ -394,6 +401,8 @@ public class GUI extends JFrame {
                     postalCodeField.getText(), countryCode, phoneNumberField.getText(),
                     emailField.getText(), ztpCheckBox.isSelected(), studentCheckBox.isSelected(),
                     retiredCheckBox.isSelected()));
+            UsersTable users = UsersTable.getInstance();
+            users.assignPersonToUser(user.id, user.id);
 
             div.setVisible(false);
             personPanel(user, user.id);
@@ -565,10 +574,10 @@ public class GUI extends JFrame {
         JLabel dobLabel = new JLabel("Date of Birth:");
         JSpinner dobSpinner = new JSpinner(new SpinnerDateModel());
         try {
-            java.util.Date date = new java.text.SimpleDateFormat("dd-MM-yyyy").parse(person.getDateOfBirth());
-            dobSpinner.setValue(date);
+            java.util.Date date = new java.text.SimpleDateFormat("dd-MM-yyyy")
+                    .parse(person.getDateOfBirth());
+            dobSpinner.setValue(person != null ? date : new java.util.Date());
         } catch (Exception e) {
-            e.printStackTrace();
             dobSpinner.setValue(new java.util.Date());
         }
         dobSpinner.setEditor(new JSpinner.DateEditor(dobSpinner, "dd-MM-yyyy"));
@@ -596,7 +605,7 @@ public class GUI extends JFrame {
         inputPanel.add(countryCodeLabel);
         inputPanel.add(countryCodeBox);
         try {
-            countryCodeBox.setSelectedItem(person.getCountryCode());
+            countryCodeBox.setSelectedItem(person != null ? person.getCountryCode() : "SK");
         } catch (Exception e) {
             countryCodeBox.setSelectedItem("SK");
         }
@@ -699,15 +708,10 @@ public class GUI extends JFrame {
                     "Are you sure you want to remove this person? ", "Confirm",
                     JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
             if (result == JOptionPane.YES_OPTION) {
+                UsersTable usersTable = UsersTable.getInstance();
+                usersTable.setRemoved(person_id, true);
+                usersTable.assignPersonToUser(person_id, null);
                 personsTable.removePerson(person_id);
-                if (user.getPersonId() != null && user.getPersonId().equals(person_id)) {
-                    user.setPerson_Id(null);
-                    user.setRemoved(true);
-
-                    UsersTable usersTable = UsersTable.getInstance();
-                    usersTable.removeUser(user.getId());
-                    usersTable.addUser(user);
-                }
                 editFrame.dispose();
                 if (onSaveCallback != null) {
                     onSaveCallback.run();
