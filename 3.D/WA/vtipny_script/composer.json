@@ -1,0 +1,15 @@
+{
+    "name": "mpmp/vtipny_script",
+    "autoload": {
+        "psr-4": {
+            "Mpmp\\VtipnyScript\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ondřej Kučera",
+            "email": "kucera@deepvision.cz"
+        }
+    ],
+    "require": {}
+}
